@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   root to: "pages#home"
   resources :realties do
     resources :claims, except: [:show]
-    resources :documents, only: [:index, :create]
+    resources :documents, only: [:index, :new, :create]
     resources :messages, only: [:index, :create]
     resources :tenants, only:[:create, :new]
   end
