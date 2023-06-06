@@ -44,7 +44,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_06_114604) do
   create_table "realties", force: :cascade do |t|
     t.string "name"
     t.string "address"
-    t.string "type"
+    t.string "category"
     t.string "rent"
     t.date "payment_date"
     t.bigint "user_id", null: false
