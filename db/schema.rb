@@ -46,7 +46,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_06_114604) do
     t.string "address"
     t.string "type"
     t.string "rent"
-    t.date "payment_date"
+    t.date "payment_date"x
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
