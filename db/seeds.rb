@@ -13,5 +13,7 @@ puts "Creating users ..."
 realty1 = Realty.create!(name: "Loft", address: "20 rue des capucins", user_id: user1.id, category: "dddd", rent: "20€")
 puts "Creating realties ..."
 
+claim1 = Claim.create!(title: "Chaudière", content: "Super", realty_id: realty1.id)
+
 Tenant.create!(enter_date: Date.today, out_date: Date.today, realty_id: realty1.id, user_id: user2.id)
 puts "Creating tenants ..."
