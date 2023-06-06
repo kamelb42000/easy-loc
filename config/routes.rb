@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: "pages#home"
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Defines the root path route ("/")
-  # root "articles#index"
+  resources :realties do
+    resources :claims, except: [:show]
+    resources :documents, only: [:index, :create]
+    resources :messages, only: [:index, :create]
+    resources :tenants, only:[:create]
+  end
 end
