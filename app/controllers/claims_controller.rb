@@ -2,6 +2,12 @@ class ClaimsController < ApplicationController
   before_action :set_realty, only: [:new, :create, :edit, :update, :destroy]
   before_action :set_claim, only: [:edit, :update, :destroy]
 
+  def index
+    @realty = Realty.find(params[:realty_id])
+    @claims = @realty.claims
+
+  end
+
   def new
     @claim = Claim.new
   end
