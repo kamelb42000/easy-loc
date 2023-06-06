@@ -41,7 +41,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_06_114604) do
     t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
-
   create_table "realties", force: :cascade do |t|
     t.string "name"
     t.string "address"
@@ -63,7 +62,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_06_114604) do
     t.datetime "updated_at", null: false
     t.index ["realty_id"], name: "index_tenants_on_realty_id"
     t.index ["user_id"], name: "index_tenants_on_user_id"
-
   end
 
   create_table "users", force: :cascade do |t|
