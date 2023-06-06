@@ -16,4 +16,4 @@ puts "Creating realties ..."
 Tenant.create!(enter_date: Date.today, out_date: Date.today, realty_id: realty1.id, user_id: user2.id)
 puts "Creating tenants ..."
 
-Message.create!(content: "Salut, çava ?")
+
