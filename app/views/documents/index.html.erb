@@ -14,11 +14,6 @@
     <%= form.text_field :name %>
   </div>
 
-  <div class="field">
-    <%= form.label :realty_id %>
-    <%= form.collection_select :realty_id, Realty.all, :id, :name %>
-  </div>
-
   <div class="actions">
     <%= form.submit "Ajouter le document" %>
   </div>
