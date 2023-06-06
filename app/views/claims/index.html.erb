@@ -1,29 +1,20 @@
 <h1>Claims</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Content</th>
-      <th>Realty</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
     <% @claims.each do |claim| %>
-      <tr>
-        <td><%= claim.title %></td>
-        <td><%= claim.content %></td>
-        <td><%= claim.realty.name %></td>
-        <td><%= link_to 'Show', claim %></td>
-        <td><%= link_to 'Edit', edit_claim_path(claim) %></td>
-        <td><%= link_to 'Delete', claim, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <ul>
+        <li><%= claim.title %></li>
+        <li><%= claim.content %></li>
+        <li><%= claim.realty.name %></li>
+        <li><%= link_to 'Show', claim %></li>
+        <li><%= link_to 'Edit', edit_claim_path(claim) %></li>
+        <li><%= link_to 'Delete', claim, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+      </ul>
     <% end %>
-  </tbody>
-</table>
 
-<br>
+
+
 
 <%= link_to 'New Claim', new_realty_claim_path(@realty) %>
+
+<%=console %>

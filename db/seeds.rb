@@ -13,8 +13,6 @@ puts "Creating users ..."
 realty1 = Realty.create!(name: "Loft", address: "20 rue des capucins", user: user1, category: "dddd", rent: "20€")
 puts "Creating realties ..."
 
-Tenant.create!(enter_date: Date.today, out_date: Date.today, realty: realty1, user: user2)
-puts "Creating tenants ..."
 
 Message.create!(content: "Salut, çava ?", user: user1, realty: realty1)
 
@@ -24,3 +22,9 @@ Document3 = Document.create(name:" document", realty: realty1)
 Document4 = Document.create(name:" document", realty: realty1)
 Document5 = Document.create(name:" document", realty: realty1)
 puts "Document created!"
+
+claim1 = Claim.create!(title: "Chaudière", content: "Super", realty_id: realty1.id)
+
+Tenant.create!(enter_date: Date.today, out_date: Date.today, realty_id: realty1.id, user_id: user2.id)
+puts "Creating tenants ..."
+
