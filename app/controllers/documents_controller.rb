@@ -1,7 +1,7 @@
 class DocumentsController < ApplicationController
 
   def index
-    @documents = Documents.all
+    @documents = Document.all
   end
 
   def new

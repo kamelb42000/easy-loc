@@ -8,4 +8,7 @@ class Realty < ApplicationRecord
   validates :name, :address, :category, :rent, presence: true
 
 
+
+# validates :name, :address, :category, :rent, presence: true
+
 end
