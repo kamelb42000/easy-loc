@@ -4,6 +4,11 @@
 <p><strong>Content:</strong> <%= @claim.content %></p>
 <p><strong>Realty:</strong> <%= @claim.realty.name %></p>
 
+<% if @claim.photo.attached? %>
+  <%= cl_image_tag(@claim.photo.blob.key, width: 400, height: 300, crop: :fill) %>
+<% else %>
+  <p>No photo available</p>
+<% end %>
 
 <%= link_to 'Edit', edit_realty_claim_path(@claim.realty, @claim) %>
-<%= link_to 'Back', realty_claims_path(@claim.realty, @claim)%>
+<%= link_to 'Back', realty_claims_path(@claim.realty, @claim) %>
