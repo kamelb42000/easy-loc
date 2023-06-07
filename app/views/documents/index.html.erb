@@ -1,25 +1,30 @@
-<h2>Mes Documents</h2>
-
-<h3>Ma liste des documents</h3>
-<ul>
-  <% @documents.each do |document| %>
-    <li><%= document.name %></li>
-  <% end %>
-</ul>
-
-<h3>Ajouter des documents</h3>
-<%= form_with(model: @document, url: realty_documents_path, local: true) do |form| %>
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <h2>Ma liste des documents</h2>
+      <ul>
+        <% @documents.each do |document| %>
+          <li>
+            <%= document.name %>
+            <% if document.photo.attached? %>
+              <%= link_to "Vu", url_for(document.photo), class: "btn btn-primary", target: "_blank" %>
+            <% else %>
+              <span class="text-muted">Aucun fichier disponible</span>
+            <% end %>
+            <%= link_to "Supprimer", document_path(document), data: { turbo_method: :delete }, class: "btn btn-danger" %>
+            <%= link_to "Télécharger", download_image_document_path(document), class: "btn btn-primary" %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+    <div class="col-md-6">
+      <h2>Ajouter un document</h2>
+      <%= simple_form_for([@realty, @document]) do |f| %>
+        <%= f.input :photo, as: :file %>
+        <%= f.input :name %>
+        <%= f.button :submit, "Ajouter le document", class: "btn btn-primary" %>
+      <% end %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= form.label :realty_id %>
-    <%= form.collection_select :realty_id, Realty.all, :id, :name %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit "Ajouter le document" %>
-  </div>
-<% end %>
+  <%= link_to "Retour", realties_path, class: "btn btn-primary" %>
+</div>
