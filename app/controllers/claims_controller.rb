@@ -2,6 +2,7 @@ class ClaimsController < ApplicationController
   before_action :set_realty, only: [:index, :new, :create, :edit, :update]
   before_action :set_claim, only: [:destroy]
 
+
   def index
     @claims = @realty.claims
   end
@@ -17,11 +18,12 @@ class ClaimsController < ApplicationController
   def create
     @claim = @realty.claims.build(claim_params)
     if @claim.save
-      redirect_to realty_claims_path
+      redirect_to realty_claims_path, notice: "Votre incident a été enregistrée avec succès"
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
+
 
   def edit
     @claim = Claim.find(params[:id])
@@ -52,6 +54,6 @@ class ClaimsController < ApplicationController
   end
 
   def claim_params
-    params.require(:claim).permit(:title, :content)
+    params.require(:claim).permit(:title, :content, :photo)
   end
 end
