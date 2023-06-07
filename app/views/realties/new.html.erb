@@ -3,8 +3,8 @@
 
 <%= simple_form_for(@realty, url: realties_path, method: :post) do |f| %>
   <%= f.input :name %>
-  <%= f.input :category %>
   <%= f.input :address %>
   <%= f.input :rent %>
+  <%= f.input :category, collection: ['appartement', 'Maison', 'studio'], prompt: 'Select a category' %>
   <%= f.submit %>
 <% end %>
