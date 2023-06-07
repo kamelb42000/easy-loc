@@ -1,2 +1,28 @@
-<h1>Realties#show</h1>
-<p>Find me in app/views/realties/show.html.erb</p>
+<div class="container">
+  <h1 class="mt-5">Realty Details</h1>
+
+  <div class="card mt-4">
+    <div class="card-body">
+      <p class="card-text"><strong>Name:</strong> <%= @realty.name %></p>
+      <p class="card-text"><strong>Rent:</strong> <%= @realty.rent %></p>
+      <p class="card-text"><strong>Category:</strong> <%= @realty.category %></p>
+      <p class="card-text"><strong>Address:</strong> <%= @realty.address %></p>
+      <p class="card-text"><strong>Owner:</strong> <%= @realty.user.first_name %></p>
+
+      <% @realty.tenants.each do |tenant| %>
+        <p><strong>Start:</strong> <%= tenant.enter_date %></p>
+        <p><strong>End:</strong> <%= tenant.out_date %></p>
+        <p><strong>Duration:</strong> <%= tenant.out_date - tenant.enter_date %></p>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="mt-4">
+    <%= link_to 'Edit', edit_realty_path(@realty), class: 'btn btn-primary' %>
+    <%= link_to 'Back', realties_path, class: 'btn btn-secondary' %>
+    <%= link_to 'Claims', realty_claims_path(@realty, @claim), class: 'btn btn-info' %>
+    <%= link_to 'Documents', realty_documents_path(@realty, @document), class: 'btn btn-info' %>
+    <%= link_to 'Messages', realty_messages_path(@realty, @message), class: 'btn btn-info' %>
+
+  </div>
+</div>

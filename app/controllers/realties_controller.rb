@@ -1,5 +1,4 @@
 class RealtiesController < ApplicationController
-
   def index
     @location_realties = current_user.location_realties
     @owned_realties = current_user.owned_realties
