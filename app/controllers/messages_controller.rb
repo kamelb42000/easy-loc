@@ -2,6 +2,7 @@ class MessagesController < ApplicationController
   def index
     @realty = Realty.find(params[:realty_id])
     @messages = @realty.messages
+    @message = Message.new
   end
 
   def create
@@ -21,5 +22,4 @@ class MessagesController < ApplicationController
   def message_params
     params.require(:message).permit(:content)
   end
-
 end

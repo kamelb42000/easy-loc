@@ -49,7 +49,6 @@ class DocumentsController < ApplicationController
    send_file(path, disposition: 'attachment')
   end
 
-
   private
 
   def document_params
