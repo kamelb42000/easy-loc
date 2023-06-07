@@ -3,12 +3,13 @@
 
     <% @claims.each do |claim| %>
       <ul>
-        <li><%= claim.title %></li>
-        <li><%= claim.content %></li>
-        <li><%= claim.realty.name %></li>
+        <li> Titre : <%= claim.title %></li>
+        <li> Contenu de la demande :<%= claim.content %></li>
+        <li> Nom de l'appartement :<%= claim.realty.name %></li>
+
         <li><%= link_to 'Show', claim %></li>
-        <li><%= link_to 'Edit', edit_claim_path(claim) %></li>
-        <li><%= link_to 'Delete', claim, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+        <li><%= link_to 'Edit', edit_realty_claim_path(claim.realty, claim) %></li>
+        <li><%= link_to 'Delete', claim_path(claim), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%></li>
       </ul>
     <% end %>
 
@@ -16,5 +17,3 @@
 
 
 <%= link_to 'New Claim', new_realty_claim_path(@realty) %>
-
-<%=console %>
