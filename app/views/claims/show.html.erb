@@ -1,0 +1,9 @@
+<h1>Claim</h1>
+
+<p><strong>Title:</strong> <%= @claim.title %></p>
+<p><strong>Content:</strong> <%= @claim.content %></p>
+<p><strong>Realty:</strong> <%= @claim.realty.name %></p>
+
+
+<%= link_to 'Edit', edit_realty_claim_path(@claim.realty, @claim) %>
+<%= link_to 'Back', realty_claims_path(@claim.realty, @claim)%>

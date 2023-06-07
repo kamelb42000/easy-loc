@@ -1,8 +1,33 @@
-<h1>Realties#index</h1>
-<p>Find me in app/views/realties/index.html.erb</p>
-
-
-
-    <% @realties.each do |realty| %>
-    <%= realty.name %>
+<div class="container">
+  <h1>Bienvenue sur la page d'accueil des biens immobiliers !</h1>
+  <div class="row">
+    <% if @location_realties.any? %>
+      <h2>Vos locations</h2>
+      <% @location_realties.each do |realty| %>
+        <div class="col-md-4">
+          <div class="card mb-4">
+            <div class="card-body">
+              <h5 class="card-name"><%= realty.name %></h5>
+              <%= link_to "Votre bien", realty_path(realty), class: "btn btn-primary" %>
+            </div>
+          </div>
+        </div>
+      <% end %>
     <% end %>
+    <% if @owned_realties.any? %>
+      <h2>Vos biens</h2>
+      <% @owned_realties.each do |realty| %>
+        <div class="col-md-4">
+          <div class="card mb-4">
+            <div class="card-body">
+              <h5 class="card-name"><%= realty.name %></h5>
+              <%= link_to "Votre bien", realty_path(realty), class: "btn btn-primary" %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+    <%= link_to "Créer votre realty", new_realty_path  %>
+</div>
+<%= console %>

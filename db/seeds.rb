@@ -10,7 +10,7 @@ user1 = User.create!(email: 'user1@gmail.com', password: 'password')
 user2 = User.create!(email: 'user2@gmail.com', password: 'password')
 puts "Creating users ..."
 
-realty1 = Realty.create!(name: "Loft", address: "20 rue des capucins", user: user1, category: "dddd", rent: "20€")
+realty1 = Realty.create!(name: "Loft", address: "20 rue des capucins", user: user1, category: "loft", rent: "20€")
 puts "Creating realties ..."
 
 
@@ -30,4 +30,3 @@ puts "Creating tenants ..."
 
 
 Message.create!(content: "Salut, çava ?", user: user1, realty: realty1)
-

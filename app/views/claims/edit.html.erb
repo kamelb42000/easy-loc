@@ -1,0 +1,7 @@
+<h1>Edit Claim</h1>
+
+<p><%= render 'form', realty: @realty, claim: @claim %></p>
+
+
+<%= link_to 'Show', @claim %>
+<%= link_to 'Back', realty_path(@claim.realty) %>
