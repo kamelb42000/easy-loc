@@ -1,0 +1,8 @@
+fr:
+  date:
+    formats:
+      default: "%d/%m/%Y"
+      short: "%d %b"
+      long: "%d %B %Y"
+    abbr_day_names: [dim, lun, mar, mer, jeu, ven, sam]
+    abbr_month_names: [nil, janv., févr., mars, avr., mai, juin, juil., août, sept., oct., nov., déc.]

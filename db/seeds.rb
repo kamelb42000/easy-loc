@@ -23,7 +23,7 @@ Document4 = Document.create(name:" document", realty: realty1)
 Document5 = Document.create(name:" document", realty: realty1)
 puts "Document created!"
 
-claim1 = Claim.create!(title: "Chaudière", content: "Super", realty_id: realty1.id)
+Claim.create!(title: "Chaudière", content: "Super", realty_id: realty1.id)
 
 Tenant.create!(enter_date: Date.today, out_date: Date.today, realty_id: realty1.id, user_id: user2.id)
 puts "Creating tenants ..."
