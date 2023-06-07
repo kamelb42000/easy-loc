@@ -1,11 +1,4 @@
 Rails.application.routes.draw do
-  get 'realties/index'
-  get 'realties/new'
-  get 'realties/show'
-  get 'realties/edit'
-  get 'realties/update'
-  get 'realties/create'
-  get 'realties/destroy'
   devise_for :users
   root to: "pages#home"
   resources :realties do
