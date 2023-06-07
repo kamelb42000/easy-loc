@@ -1,7 +1,8 @@
 class RealtiesController < ApplicationController
 
   def index
-    @realties = Realty.all
+    @location_realties = current_user.location_realties
+    @owned_realties = current_user.owned_realties
   end
 
   def new
@@ -28,7 +29,7 @@ class RealtiesController < ApplicationController
   def create
     @realty = Realty.new(realty_params)
     @realty.user_id = current_user.id
-    if @realty.save
+    if @realty.save!
       return redirect_to realties_path
     else
       render :new, status: :unprocessable_entity
@@ -44,6 +45,6 @@ end
 
 private
 
-def realty_params
-  params.require(:realty).permit(:name, :rent, :category, :adress,:current_user)
-end
+  def realty_params
+    params.require(:realty).permit(:name, :rent, :category, :address,:current_user)
+  end
