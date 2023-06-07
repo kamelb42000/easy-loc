@@ -11,6 +11,9 @@ Rails.application.routes.draw do
   end
 
   resources :claims, only: [:show, :edit, :update, :destroy]
+  resources :documents, only: [:show, :destroy] do
+    get :download_image, on: :member
+  end
 
 
 end
