@@ -1,11 +1,13 @@
 class ClaimsController < ApplicationController
-  before_action :set_realty, only: [:new, :create, :edit, :update, :destroy]
-  before_action :set_claim, only: [:edit, :update, :destroy]
+  before_action :set_realty, only: [:index, :new, :create, :edit, :update]
+  before_action :set_claim, only: [:destroy]
 
   def index
-    @realty = Realty.find(params[:realty_id])
     @claims = @realty.claims
+  end
 
+  def show
+    @claim = Claim.find(params[:id])
   end
 
   def new
@@ -15,18 +17,20 @@ class ClaimsController < ApplicationController
   def create
     @claim = @realty.claims.build(claim_params)
     if @claim.save
-      redirect_to @realty
+      redirect_to realty_claims_path
     else
       render :new
     end
   end
 
   def edit
+    @claim = Claim.find(params[:id])
   end
 
   def update
+    @claim = Claim.find(params[:id])
     if @claim.update(claim_params)
-      redirect_to @realty
+      redirect_to realty_claims_path
     else
       render :edit
     end
@@ -34,7 +38,7 @@ class ClaimsController < ApplicationController
 
   def destroy
     @claim.destroy
-    redirect_to @realty
+    redirect_to realty_claims_path(@claim.realty)
   end
 
   private
