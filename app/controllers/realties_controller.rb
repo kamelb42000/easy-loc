@@ -1,7 +1,7 @@
 class RealtiesController < ApplicationController
 
   def index
-    @realities = Realty.all
+    @realties = Realty.all
   end
 
   def new
