@@ -1,13 +1,10 @@
 <h1>Messages#index</h1>
 <p>Find me in app/views/messages/index.html.erb</p>
 
-<%= simple_form_for [@realty, @message],
-  html: {class: "d-flex"} do |f|
-%>
-  <%= f.input :content,
-    label: false,
-    placeholder: "Message ##{@realty.name}",
-    wrapper_html: {class: "flex-grow-1"}
-  %>
-  <%= f.submit "Send", class: "btn btn-primary mb-3" %>
-<% end %>
+<div class="container realty">
+  <h1><%= @realty.name %></h1>
+
+  <div class="messages">
+    <% @messages.each do |message| %>
+    <%= message.content %>
+    <% end %>
