@@ -5,4 +5,10 @@ class User < ApplicationRecord
   has_many :location_realties, through: :tenants, source: :realty
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
+
+  def full_name
+    return "Pas de nom" unless first_name || last_name
+    "#{first_name} #{last_name}"
+  end
 end
