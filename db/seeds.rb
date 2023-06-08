@@ -6,8 +6,10 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 User.destroy_all
+
 user1 = User.create!(email: 'user1@gmail.com', password: 'password', first_name: 'Billal', last_name: 'Medjou')
 user2 = User.create!(email: 'user2@gmail.com', password: 'password', first_name: 'Igor', last_name: 'Poutine')
+
 puts "Creating users ..."
 
 realty1 = Realty.create!(name: "Loft", address: "20 rue des capucins", user: user1, category: "loft", rent: "20€")
@@ -27,6 +29,3 @@ Claim.create!(title: "Chaudière", content: "Super", realty_id: realty1.id)
 
 Tenant.create!(enter_date: Date.today, out_date: Date.today, realty_id: realty1.id, user_id: user2.id)
 puts "Creating tenants ..."
-
-
-Message.create!(content: "Salut, çava ?", user: user1, realty: realty1)
