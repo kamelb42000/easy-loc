@@ -11,7 +11,9 @@
             <% else %>
               <span class="text-muted">Aucun fichier disponible</span>
             <% end %>
+            <% if document.photo.attached? %>
             <%= link_to raw('<i class="fas fa-download"></i>'), rails_blob_url(document.photo, disposition: 'attachment'), class: "btn btn-primary" %>
+            <% end %>
             <%= link_to raw('<i class="fa-regular fa-circle-xmark"></i>'), document_path(document), data: { turbo_method: :delete, turbo_confirm: "Etes-vous sûr de vouloir supprimer ce document?" }, class: "btn btn-danger" %>
           </li>
         <% end %>

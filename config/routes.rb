@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: "realties#index"
+  root to: "pages#home"
 
   resources :realties do
     resources :claims, only: [:index, :new, :create, :edit, :update]
@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
   resources :claims, only: [:show, :edit, :update, :destroy]
   resources :documents, only: [:show, :destroy] do
-    post :download_file, on: :member
+    post :download_files, on: :member
   end
 
   resources :claims, only: [:show, :destroy]
