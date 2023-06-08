@@ -80,3 +80,7 @@ end
 gem "dotenv-rails", groups: [:development, :test]
 gem "cloudinary"
 gem "open-uri"
+gem 'zip-zip'
+gem "pdf-reader", "~> 2.11"
+gem "wkhtmltopdf-binary"
+gem "wicked_pdf"
