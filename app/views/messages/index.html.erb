@@ -1,34 +1,28 @@
-<h1>Messages#index</h1>
-<p>Find me in app/views/messages/index.html.erb</p>
 
-<div class="container realty">
-  <h1>
-  <%= @realty.name %>
-  </h1>
+<div class="container realty" data-controller="realty-subscription" data-realty-subscription-realty-id-value="<%= @realty.id %>" >
+  <h1><%= @realty.name %></h1>
 
-  <div class="messages">
+  <div class="messages" data-realty-subscription-target="messages">
     <% @messages.each do |message| %>
-      <div id="message-<%= message.id %>">
-        <small>
-          <strong>
-            <%= message.user.email %>
-          </strong>
-          <i><%= l(message.created_at, format: "%a %b %e à %Hh%M ") %></i>
-        </small>
-         <p>
-         <%= message.content %>
-         </p>
-      </div>
-  </div>
+      <%= render "messages/message", message: message %>
     <% end %>
+  </div>
 
-    <%= simple_form_for [@realty, @message],
-      html: {class: "d-flex"} do |f|%>
-      <%= f.input :content,
-        label: false,
-        placeholder: "Message #{@realty.name}",
-        wrapper_html: {class: "flex-grow-1"} %>
-      <%= f.submit "Send", class: "btn btn-primary mb-3" %>
-      <% end %>
+  <%= simple_form_for [@realty, @message], html: { data: { action: "turbo:submit-end->realty-subscription#resetForm" }, class: "d-flex" } do |f|%>
+    <div class="input-group mb-3">
+      <%= f.input :content, label: false, placeholder: "Message #{@realty.name}", wrapper_html: {class: "form-control"} %>
+        <button type="submit" class="btn btn-primary btn-icon">
+          <i class="fas fa-paper-plane"></i>
+        </button>
+
+      </button>
+
+    </div>
+  <% end %>
 </div>
 
+<%# Scroll vers le dernier message %>
+<script>
+    messagesContainer = document.querySelector("body > div.container > div > div");
+    messagesContainer.scrollTo(0, messagesContainer.scrollHeight);
+</script>

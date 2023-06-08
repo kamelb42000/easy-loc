@@ -10,16 +10,23 @@ class MessagesController < ApplicationController
     @message = Message.new(message_params)
     @message.realty = @realty
     @message.user = current_user
-    if @message.save
-      redirect_to realty_messages_path(@realty)
-    else
-      render :index, status: :unprocessable_entity
-    end
+      if @message.save
+        RealtyChannel.broadcast_to(
+          @realty,
+          render_to_string(partial: "message", locals: {message: @message})
+        )
+        head :ok
+
+        #redirect_to realty_messages_path(@realty)
+       else
+        render :index, status: :unprocessable_entity
+     end
   end
 
-  private
+ private
 
   def message_params
     params.require(:message).permit(:content)
   end
+
 end
