@@ -1,5 +1,9 @@
 
 <div class="container realty" data-controller="realty-subscription" data-realty-subscription-realty-id-value="<%= @realty.id %>" >
+  <%= link_to realty_path(@realty), class: "btn btn-primary" do %>
+    <i class="bi bi-arrow-left"></i> Back
+  <% end %>
+
   <h1><%= @realty.name %></h1>
 
   <div class="messages" data-realty-subscription-target="messages">

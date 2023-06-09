@@ -20,7 +20,7 @@ class MessagesController < ApplicationController
         #redirect_to realty_messages_path(@realty)
        else
         render :index, status: :unprocessable_entity
-     end
+      end
   end
 
  private
