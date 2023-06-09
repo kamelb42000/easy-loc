@@ -1,8 +1,8 @@
 .card {
   perspective: 1000px;
   width: 100%;
-  height: 0;
-  padding-bottom: 75%; /* Contrôle le ratio de la carte (hauteur / largeur) */
+  height: auto;
+ /* Contrôle le ratio de la carte (hauteur / largeur) */
 }
 
 .card-inner {
@@ -19,11 +19,12 @@
 
 .card-front,
 .card-back {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  padding: 25%;
+  // position: absolute;
+  // top: 0;
+  // left: 0;
+  // width: 100%;
+  // height: 100%;
   backface-visibility: hidden;
 }
 
@@ -50,4 +51,7 @@
 }
 .col-md-4{
   margin-top: 10%;
+}
+.h2{
+  padding-top: 10%;
 }
