@@ -1,7 +1,7 @@
 <%= simple_form_for(@realty, html: { class: 'form' }) do |form| %>
   <% if @realty.errors.any? %>
     <div id="error_explanation" class="alert alert-danger">
-      <h2><%= pluralize(@realty.errors.count, "error") %> prohibited this realty from being saved:</h2>
+      <h2><%= pluralize(@realty.errors.count, "error") %>:</h2>
 
       <ul>
         <% @realty.errors.full_messages.each do |message| %>
@@ -13,7 +13,7 @@
 
   <div class="form-group">
     <%= form.label :name %>
-    <%= form.text_field :name, class: 'form-control' %>
+    <%= form.text_field :name, class: 'form-control' %>$
   </div>
 
   <div class="form-group">
@@ -30,6 +30,19 @@
     <%= form.label :address %>
     <%= form.text_field :address, class: 'form-control' %>
   </div>
+
+
+  <div class="form-group">
+    <%= form.select(:tenant_user_id, User.where.not(id: current_user.id).collect {|p| [ p.full_name, p.id ] }) %>
+  </div>
+
+  <%= form.input :tenant_enter_date, as: :date %>
+  <%= form.input :tenant_out_date, as: :date %>
+
+
+
+
+
 
   <div class="actions">
     <%= form.button :submit, class: 'btn btn-primary' %>

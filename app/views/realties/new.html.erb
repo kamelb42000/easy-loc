@@ -1,10 +1,7 @@
 <h1>Realties#new</h1>
 <p>Find me in app/views/realties/new.html.erb</p>
 
-<%= simple_form_for(@realty, url: realties_path, method: :post) do |f| %>
-  <%= f.input :name %>
-  <%= f.input :address %>
-  <%= f.input :rent %>
-  <%= f.input :category, collection: ['appartement', 'Maison', 'studio'], prompt: 'Select a category' %>
-  <%= f.submit %>
-<% end %>
+<%= render 'form' %>
+
+
+<%= link_to 'back', realties_path %>

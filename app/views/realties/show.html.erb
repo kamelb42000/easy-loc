@@ -7,15 +7,20 @@
       <p class="card-text"><strong>Rent:</strong> <%= @realty.rent %></p>
       <p class="card-text"><strong>Category:</strong> <%= @realty.category %></p>
       <p class="card-text"><strong>Address:</strong> <%= @realty.address %></p>
-      <p class="card-text"><strong>Owner:</strong> <%= @realty.user.full_name %></p>
-
-      <% @realty.tenants.each do |tenant| %>
-        <p><strong>Start:</strong> <%= tenant.enter_date %></p>
-        <p><strong>End:</strong> <%= tenant.out_date %></p>
-        <p><strong>Duration:</strong> <%= tenant.out_date - tenant.enter_date %></p>
-      <% end %>
-    </div>
+    <div class="card-text">
+    <strong>Tenants:</strong>
+    <% @realty.tenants.each do |tenant| %>
+      <div class="d-flex justify-content-around">
+        <%= tenant.user.full_name %>
+        <p><strong>Date d'entrée dans le logement : </strong> <%= tenant.enter_date %></p>
+        <p><strong>Date de sortie du logement :</strong> <%= tenant.out_date %></p>
+        <% if tenant.enter_date && tenant.out_date %>
+          <p><strong>Durée de location :</strong> <%= (tenant.out_date - tenant.enter_date ).to_i %></p>
+        <% end %>
+      </div>
+    <% end %>
   </div>
+
 
   <div class="mt-4">
     <%= link_to 'Edit', edit_realty_path(@realty), class: 'btn btn-primary' %>
