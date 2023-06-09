@@ -7,7 +7,7 @@
         <li> Contenu de la demande :<%= claim.content %></li>
         <li> Nom de l'appartement :<%= claim.realty.name %></li>
 
-        <li><%= link_to 'Show', claim %></li>
+        <li><%= link_to 'Show', realty_claim_path(claim.realty, claim) %></li>
         <li><%= link_to 'Edit', edit_realty_claim_path(claim.realty, claim) %></li>
         <li><%= link_to 'Delete', claim_path(claim), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%></li>
       </ul>
@@ -15,5 +15,6 @@
 
 
 
-
 <%= link_to 'New Claim', new_realty_claim_path(@realty) %>
+
+<%= link_to 'Retour show appartement', realty_path(@realty) %>
