@@ -10,7 +10,7 @@ User.destroy_all
 user1 = User.create!(email: 'user1@gmail.com', password: 'password', first_name: 'Billal', last_name: 'Medjou')
 user2 = User.create!(email: 'user2@gmail.com', password: 'password', first_name: 'Kamel', last_name: 'Besseigheir')
 user3 = User.create!(email: 'user3@gmail.com', password: 'password', first_name: 'Mehdi', last_name: 'Medjou')
-user4 = User.create!(email: 'user2@gmail.com', password: 'password', first_name: 'Igor', last_name: 'Poutine')
+user4 = User.create!(email: 'user4@gmail.com', password: 'password', first_name: 'Igor', last_name: 'Poutine')
 
 puts "Creating users ..."
 

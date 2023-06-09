@@ -6,29 +6,47 @@
       <% @location_realties.each do |realty| %>
         <div class="col-md-4">
           <div class="card mb-4">
-            <div class="card-body">
-              <i class="bi bi-house-fill" style="font-size: 48px;"></i>
-              <h5 class="card-name"><%= realty.name %></h5>
-              <%= link_to "Votre bien", realty_path(realty), class: "btn btn-primary" %>
+            <div class="card-inner">
+              <div class="card-front">
+                <div class="card-content">
+                  <i class="bi bi-house-fill"></i>
+                  <h5 class="card-name"><%= realty.name %></h5>
+                </div>
+              </div>
+              <div class="card-back">
+                <div class="card-content">
+
+                </div>
+              </div>
             </div>
           </div>
         </div>
       <% end %>
+      <%= link_to "Votre bien", realty_path(@realty), class: "btn btn-primary" %>
     <% end %>
     <% if @owned_realties.any? %>
       <h2>Vos propriétés</h2>
       <% @owned_realties.each do |realty| %>
         <div class="col-md-4">
           <div class="card mb-4">
-            <div class="card-body">
-              <i class="bi bi-house-fill" style="font-size: 48px;"></i>
-              <h5 class="card-name"><%= realty.name %></h5>
-              <%= link_to "Votre bien", realty_path(realty), class: "btn btn-primary" %>
+            <div class="card-inner">
+              <div class="card-front">
+                <div class="card-content">
+                  <i class="bi bi-house-fill"></i>
+                  <h5 class="card-name"><%= realty.name %></h5>
+                </div>
+              </div>
+              <div class="card-back">
+                <div class="card-content">
+                </div>
+              </div>
             </div>
           </div>
         </div>
+        <%= link_to "Votre bien", realty_path(realty), class: "btn btn-primary" %>
       <% end %>
     <% end %>
   </div>
+
   <%= link_to "Créer votre bien", new_realty_path, class: "btn btn-primary" %>
 </div>
