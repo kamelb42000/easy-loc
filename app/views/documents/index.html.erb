@@ -7,12 +7,14 @@
           <li>
             <%= document.name %>
             <% if document.photo.attached? %>
-              <%= link_to "Vu", url_for(document.photo), class: "btn btn-primary", target: "_blank" %>
+              <%= link_to raw('<i class="fa-regular fa-eye"></i>'), url_for(document.photo), class: "btn btn-primary", target: "_blank" %>
             <% else %>
               <span class="text-muted">Aucun fichier disponible</span>
             <% end %>
-            <%= link_to "Supprimer", document_path(document), data: { turbo_method: :delete, turbo_confirm: "Etes-vous sûr de vouloir supprimer ce document?" }, class: "btn btn-danger" %>
-            <%= link_to "Télécharger", download_image_document_path(document), class: "btn btn-primary" %>
+            <% if document.photo.attached? %>
+            <%= link_to raw('<i class="fas fa-download"></i>'), rails_blob_url(document.photo, disposition: 'attachment'), class: "btn btn-primary" %>
+            <% end %>
+            <%= link_to raw('<i class="fa-regular fa-circle-xmark"></i>'), document_path(document), data: { turbo_method: :delete, turbo_confirm: "Etes-vous sûr de vouloir supprimer ce document?" }, class: "btn btn-danger" %>
           </li>
         <% end %>
       </ul>
