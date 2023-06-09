@@ -42,7 +42,7 @@ class RealtiesController < ApplicationController
   end
 
   def destroy
-    @realty = realty.find(params[:id])
+    @realty = Realty.find(params[:id])
     @realty.destroy
     redirect_to realties_path, status: :see_other
   end
@@ -50,6 +50,6 @@ class RealtiesController < ApplicationController
   private
 
   def realty_params
-    params.require(:realty).permit(:name, :address, :rent, :category, :tenant_user_id, :tenant_enter_date, :tenant_out_date)
+    params.require(:realty).permit(:name, :address, :rent, :category, :payment_date, :tenant_user_id, :tenant_enter_date, :tenant_out_date)
   end
 end
