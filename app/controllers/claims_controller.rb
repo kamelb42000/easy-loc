@@ -17,8 +17,9 @@ class ClaimsController < ApplicationController
 
   def create
     @claim = @realty.claims.build(claim_params)
+    @claim.tenant = current_user
     if @claim.save
-      redirect_to realty_claims_path, notice: "Votre incident a été enregistrée avec succès"
+      redirect_to realty_claims_path, notice: "Votre demande a été enregistrée avec succès"
     else
       render :new, status: :unprocessable_entity
     end
@@ -41,6 +42,24 @@ class ClaimsController < ApplicationController
   def destroy
     @claim.destroy
     redirect_to realty_claims_path(@claim.realty)
+  end
+
+  def accept
+    @claim = Claim.find(params[:id])
+    @claim.update(status: "in progress")
+    redirect_to claim_path(@claim), notice: "La demande a été acceptée avec succès"
+  end
+
+  def refuse
+    @claim = Claim.find(params[:id])
+    @claim.update(status: "refused")
+    redirect_to claim_path(@claim), notice: "pas content"
+  end
+
+  def done
+    @claim = Claim.find(params[:id])
+    @claim.update(status: "done")
+    redirect_to claim_path(@claim), notice: "La réclamation a été marquée comme terminée avec succès."
   end
 
   private

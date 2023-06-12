@@ -3,6 +3,7 @@
 <p><strong>Title:</strong> <%= @claim.title %></p>
 <p><strong>Content:</strong> <%= @claim.content %></p>
 <p><strong>Realty:</strong> <%= @claim.realty.name %></p>
+<p><strong>Locataire :</strong> <%= @claim.tenant.full_name %></p>
 
 <% if @claim.photo.attached? %>
   <%= cl_image_tag(@claim.photo.blob.key, width: 400, height: 300, crop: :fill) %>
@@ -10,5 +11,17 @@
   <p>No photo available</p>
 <% end %>
 
-<%= link_to 'Edit', edit_realty_claim_path(@claim.realty, @claim) %>
-<%= link_to 'Back', realty_claims_path(@claim.realty, @claim) %>
+<% if @claim.tenant == current_user %>
+  <%= link_to 'Edit', edit_realty_claim_path(@claim.realty, @claim) %>
+<% end %>
+
+<%= link_to 'Back', realty_claims_path(@claim.realty) %>
+
+<% if current_user == @claim.realty.user && @claim.status == 'pending' %>
+  <%= link_to 'Accept', accept_claim_path(@claim), data: { turbo_method: :patch }, class: "btn-primary"  %>
+  <%= link_to 'refuse', refuse_claim_path(@claim), data: { turbo_method: :patch }, class: "btn-primary"  %>
+<% end %>
+
+<% if @claim.status == 'in progress' %>
+  <%= link_to 'Done', done_claim_path(@claim), data: { turbo_method: :patch }, class: "btn-primary" %>
+<% end %>

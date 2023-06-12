@@ -5,11 +5,12 @@
       <ul>
         <li> Titre : <%= claim.title %></li>
         <li> Contenu de la demande :<%= claim.content %></li>
+        <li> <%= claim.status %></li>
         <li> Nom de l'appartement :<%= claim.realty.name %></li>
-
         <li><%= link_to 'Show', realty_claim_path(claim.realty, claim) %></li>
-        <li><%= link_to 'Edit', edit_realty_claim_path(claim.realty, claim) %></li>
-        <li><%= link_to 'Delete', claim_path(claim), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%></li>
+        <% if claim.tenant == current_user %>
+          <li><%= link_to 'Edit', edit_realty_claim_path(claim.realty, claim) %></li>
+        <% end %>
       </ul>
     <% end %>
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_07_091239) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_12_123025) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -48,6 +48,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_07_091239) do
     t.bigint "realty_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "tenant_id"
+    t.string "status", default: "pending"
     t.index ["realty_id"], name: "index_claims_on_realty_id"
   end
 
