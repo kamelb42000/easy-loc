@@ -85,4 +85,6 @@ gem 'zip-zip'
 gem "pdf-reader", "~> 2.11"
 gem "wkhtmltopdf-binary"
 gem "wicked_pdf"
-gem 'whenever', require: false
+
+gem "redis"
+
