@@ -36,17 +36,13 @@
     <%= form.date_field :payment_date %>
   </div>
 
-  <div class="form-group">
-    <%= form.select(:tenant_user_id, User.where.not(id: current_user.id).collect {|p| [ p.full_name, p.id ] }) %>
+   <div class="form-group">
+    <%= label_tag  :tenant_email %>
+    <%= text_field_tag :tenant_email%>
   </div>
 
   <%= form.input :tenant_enter_date, as: :date %>
   <%= form.input :tenant_out_date, as: :date %>
-
-
-
-
-
 
   <div class="actions">
     <%= form.button :submit, class: 'btn btn-primary' %>
