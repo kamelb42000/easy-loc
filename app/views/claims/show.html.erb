@@ -1,21 +1,32 @@
-<h1>Claim</h1>
+<div class="btn-show">
+  <%= link_to realty_claims_path(@claim.realty), class: "btn btn-primary" do %>
+    <i class="fa-sharp fa-solid fa-arrow-left"></i>
+  <% end %>
+</div>
+<div class="titre-show_claim">
+<h3>Claim</h3>
+</div>
 
-<p><strong>Title:</strong> <%= @claim.title %></p>
-<p><strong>Content:</strong> <%= @claim.content %></p>
-<p><strong>Realty:</strong> <%= @claim.realty.name %></p>
-<p><strong>Locataire :</strong> <%= @claim.tenant.full_name %></p>
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title"><strong>Title:</strong> <%= @claim.title %></h5>
+    <h5 class="card-title"><strong>Content:</strong> <%= @claim.content %></h5>
+    <h5 class="card-title"><%= @claim.realty.name %></h5>
+    <h5 class="card-title"></strong> <%= @claim.tenant.full_name %></h5>
 
-<% if @claim.photo.attached? %>
-  <%= cl_image_tag(@claim.photo.blob.key, width: 400, height: 300, crop: :fill) %>
-<% else %>
-  <p>No photo available</p>
-<% end %>
-
-<% if @claim.tenant == current_user %>
-  <%= link_to 'Edit', edit_realty_claim_path(@claim.realty, @claim) %>
-<% end %>
-
-<%= link_to 'Back', realty_claims_path(@claim.realty) %>
+    <p class="card-text"><strong>Content:</strong> <%= @claim.content %></p>
+  </div>
+  <% if @claim.photo.attached? %>
+    <%= image_tag(@claim.photo) %>
+  <% else %>
+    <p>No photo available</p>
+  <% end %>
+</div>
+<div class="btn-claim-edit">
+  <% if @claim.tenant == current_user %>
+    <%= link_to 'Mettre à jour', edit_realty_claim_path(@claim.realty, @claim), class: "btn btn-primary" %>
+  <% end %>
+</div>
 
 <% if current_user == @claim.realty.user && @claim.status == 'pending' %>
   <%= link_to 'Accept', accept_claim_path(@claim), data: { turbo_method: :patch }, class: "btn-primary"  %>

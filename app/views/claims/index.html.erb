@@ -1,21 +1,31 @@
-<h1>Claims</h1>
+<div>
+  <%= link_to realty_path(@realty), class: "btn btn-primary" do %>
+    <i class="fa-sharp fa-solid fa-arrow-left"></i>
+  <% end %>
+</div>
+<div class="titre_claim">
+  <h3>Reclamation</h3>
+</div>
 
 
-    <% @claims.each do |claim| %>
-      <ul>
-        <li> Titre : <%= claim.title %></li>
-        <li> Contenu de la demande :<%= claim.content %></li>
-        <li> <%= claim.status %></li>
-        <li> Nom de l'appartement :<%= claim.realty.name %></li>
-        <li><%= link_to 'Show', realty_claim_path(claim.realty, claim) %></li>
-        <% if claim.tenant == current_user %>
-          <li><%= link_to 'Edit', edit_realty_claim_path(claim.realty, claim) %></li>
-        <% end %>
-      </ul>
-    <% end %>
+<% @claims.each do |claim| %>
+  <div class="card">
+    <div class="card-header">
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">Titre : <%= claim.title %></h5>
+      <h5 class="card-title"><%= claim.status %></h5>
+      <p class="card-text">Contenu de la demande : <%= claim.content %>.</p>
+      <p class="card-text">Nom de l'appartement : <%= claim.realty.name %>.</p>
+      <a href="<%= realty_claim_path(claim.realty, claim) %>" class="btn btn-primary">Visualiser</a>
+      <% if claim.tenant == current_user %>
+        <a href="<%= edit_realty_claim_path(claim.realty, claim) %>" class="btn btn-primary">Mettre à jour</a>
+      <% end %>
+    </div>
+  </div>
+<% end %>
 
 
-
-<%= link_to 'New Claim', new_realty_claim_path(@realty) %>
-
-<%= link_to 'Retour show appartement', realty_path(@realty) %>
+<div class = "reclamation">
+  <%= link_to 'Ajouter une réclamation', new_realty_claim_path(@realty), class: "btn btn-primary" %>
+</div>
