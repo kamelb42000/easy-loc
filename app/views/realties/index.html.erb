@@ -1,22 +1,24 @@
 <div class="container">
-  <h1>Bienvenue sur la page d'accueil des biens immobiliers !</h1>
+  <h1>Bienvenue, <%= "#{current_user.first_name} #{current_user.last_name}" %></h1>
   <div class="row">
     <% if @location_realties.any? %>
       <h2>Vos locations</h2>
       <% @location_realties.each do |realty| %>
-        <div class="col-md-4">
+       <div class="col-md-4">
           <div class="card mb-4">
-            <div class="card-inner">
-              <div class="card-front">
-                <div class="card-content">
-                  <i class="bi bi-house-fill"></i>
-                  <h5 class="card-name"><%= realty.name %></h5>
-                </div>
+            <a href="<%= realty_path(realty) %>" class="card-link">
+              <div class="card-name">
+                <% if realty.category == "Maison" %>
+                  <i class="fa-solid fa-house"></i>
+                <% else %>
+                  <i class="fa-solid fa-hotel"></i>
+                <% end %>
+                <h5><%= realty.name %></h5>
+                <h5><%= realty.address %></h5>
               </div>
-              <div class="card-back">
-                <div class="card-content">
-                </div>
-              </div>
+            </a>
+          </div>
+        </div>
             </div>
           </div>
         </div>
@@ -28,24 +30,30 @@
       <% @owned_realties.each do |realty| %>
         <div class="col-md-4">
           <div class="card mb-4">
-            <div class="card-inner">
-              <div class="card-front">
-                <div class="card-content">
-                  <i class="bi bi-house-fill"></i>
-                  <h5 class="card-name"><%= realty.name %></h5>
+            <a href="<%= realty_path(realty) %>" class="card-link">
+              <div class="card-name">
+                <% if realty.category == "Maison" %>
+                  <i class="fa-solid fa-house"></i>
+                <% else %>
+                  <i class="fa-solid fa-hotel"></i>
+                <% end %>
+                <div class="card-contain">
+                  <div class="title">
+                    <h5><%= realty.name %></h5>
+                  </div>
+                  <div class="text">
+                    <h5><%= realty.address %></h5>
+                  </div>
                 </div>
+
               </div>
-              <div class="card-back">
-                <div class="card-content">
-                </div>
-              </div>
-            </div>
+            </a>
           </div>
         </div>
-        <%= link_to "Votre bien", realty_path(realty), class: "btn btn-primary" %>
+        </div>
       <% end %>
     <% end %>
-  </div>
 
-  <%= link_to "Créer votre bien", new_realty_path, class: "btn btn-primary" %>
+  <div class= "Ajout">
+  <%= link_to "Ajouter", new_realty_path, class: "btn btn-primary" %>
 </div>
