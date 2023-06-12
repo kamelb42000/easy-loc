@@ -9,8 +9,13 @@ Rails.application.routes.draw do
     resources :tenants, only: [:create, :new]
   end
 
-
-  resources :claims, only: [:destroy]
+  resources :claims do
+    member do
+      patch :accept
+      patch :done
+      patch :refuse
+    end
+  end
   resources :documents, only: [:show, :destroy] do
     post :download_files, on: :member
   end
