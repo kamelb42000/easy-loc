@@ -15,10 +15,17 @@ class RealtiesController < ApplicationController
 
   def edit
     @realty = Realty.find(params[:id])
+    unless current_user == @realty.user
+      redirect_to realty_path(@realty), flash: { alert: "Vous n'êtes pas autorisé à modifier ce bien immobilier." }
+    end
   end
 
   def update
     @realty = Realty.find(params[:id])
+    unless current_user == @realty.user
+      redirect_to realty_path(@realty), flash: { alert: "Vous n'êtes pas autorisé à modifier ce bien immobilier." }
+      return
+    end
     if @realty.update(realty_params)
       tenant_email = params["tenant_email"]
       tenant_user = User.find_by(email: tenant_email)
@@ -51,6 +58,10 @@ class RealtiesController < ApplicationController
 
   def destroy
     @realty = Realty.find(params[:id])
+    unless current_user == @realty.user
+      redirect_to realty_path(@realty), flash: { alert: "Vous n'êtes pas autorisé à supprimer ce bien immobilier." }
+      return
+    end
     @realty.destroy
     redirect_to realties_path, status: :see_other
   end
