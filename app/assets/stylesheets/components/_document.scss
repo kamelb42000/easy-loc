@@ -1,3 +1,10 @@
 .btn-retour{
   margin-top: 10%;
 }
+
+li .document{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
