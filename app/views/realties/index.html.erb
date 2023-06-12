@@ -4,7 +4,7 @@
     <% if @location_realties.any? %>
       <h2>Vos locations</h2>
       <% @location_realties.each do |realty| %>
-       <div class="col-md-4">
+         <div class="col-md-4">
           <div class="card mb-4">
             <a href="<%= realty_path(realty) %>" class="card-link">
               <div class="card-name">
@@ -13,18 +13,22 @@
                 <% else %>
                   <i class="fa-solid fa-hotel"></i>
                 <% end %>
-                <h5><%= realty.name %></h5>
-                <h5><%= realty.address %></h5>
+                <div class="card-contain">
+                  <div class="title">
+                    <h5><%= realty.name %></h5>
+                  </div>
+                  <div class="text">
+                    <h5><%= realty.address %></h5>
+                  </div>
+                </div>
               </div>
             </a>
           </div>
         </div>
-            </div>
-          </div>
         </div>
-      <%= link_to "Votre bien", realty_path(realty), class: "btn btn-primary" %>
       <% end %>
     <% end %>
+
     <% if @owned_realties.any? %>
       <h2>Vos propriétés</h2>
       <% @owned_realties.each do |realty| %>
@@ -45,7 +49,6 @@
                     <h5><%= realty.address %></h5>
                   </div>
                 </div>
-
               </div>
             </a>
           </div>
