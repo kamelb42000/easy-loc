@@ -2,7 +2,9 @@ fr:
   date:
     formats:
       default: "%d/%m/%Y"
-      short: "%d %b"
-      long: "%d %B %Y"
-    abbr_day_names: [dim, lun, mar, mer, jeu, ven, sam]
-    abbr_month_names: [nil, janv., févr., mars, avr., mai, juin, juil., août, sept., oct., nov., déc.]
+      short: "%e %b"
+      long: "%e %B %Y" 
+    day_names: [Dimanche, Lundi, Mardi, Mercredi, Jeudi, Vendredi, Samedi]
+    abbr_day_names: [Dim, Lun, Mar, Mer, Jeu, Ven, Sam]
+    month_names: [~, Janvier, Février, Mars, Avril, Mai, Juin, Juillet, Août, Septembre, Octobre, Novembre, Décembre]
+    abbr_month_names: [~, Janv, Fév, Mars, Avr, Mai, Juin, Juil, Août, Sept, Oct, Nov, Déc]
