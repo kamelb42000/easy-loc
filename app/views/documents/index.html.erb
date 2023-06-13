@@ -13,20 +13,21 @@
             <li >
               <%= document.name %>
               <% if document.photo.attached? %>
-                <%= link_to raw('<i class="fa-regular fa-eye"></i>'), url_for(document.photo), class: "btn btn-primary", target: "_blank" %>
+                <%= link_to raw('<i class="fa-regular fa-eye"></i>'), url_for(document.photo), target: "_blank" %>
               <% else %>
                 <span class="text-muted">Aucun fichier disponible</span>
               <% end %>
               <% if document.photo.attached? %>
-              <%= link_to raw('<i class="fas fa-download"></i>'), rails_blob_url(document.photo, disposition: 'attachment'), class: "btn btn-primary" %>
+              <%= link_to raw('<i class="fas fa-download"></i>'), rails_blob_url(document.photo, disposition: 'attachment') %>
               <% end %>
-              <%= link_to raw('<i class="fa-regular fa-circle-xmark"></i>'), document_path(document), data: { turbo_method: :delete, turbo_confirm: "Etes-vous sûr de vouloir supprimer ce document?" }, class: "btn btn-danger" %>
+              <%= link_to raw('<i class="fa-regular fa-circle-xmark"></i>'), document_path(document), data: { turbo_method: :delete, turbo_confirm: "Etes-vous sûr de vouloir supprimer ce document?" } %>
             </li>
           <% end %>
       </ul>
     </div>
     </div>
-    <div class="col-md-6">
+    <div class="ajouter-document">
+    
       <h5>Ajouter un document</h5>
       <%= simple_form_for([@realty, @document]) do |f| %>
         <%= f.input :photo, as: :file %>
