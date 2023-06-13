@@ -15,6 +15,7 @@
 .titre-appartement{
 text-align: center;
 background-color: white;
+border-radius: 5px;
 }
 .card-category {
   background-size: cover;
@@ -48,17 +49,22 @@ background-color: white;
 
 .info-container {
   display: flex;
+  margin-bottom: 3%;
+}
+.image-container{
+  margin-bottom: 3%;
 }
 
 .info-card {
   display: flex;
   flex-direction: column;
-  background-color: #f8f8f8;
+  background-color: white;
   border-radius: $border-radius;
   margin-right: 10px;
   padding: 10px;
   align-items: center;
   text-align: center;
+  box-shadow: 1px 2px 3px 2px rgba(0, 0, 0, 0.30);
 }
 
 .info-card-icon {
@@ -98,6 +104,12 @@ background-color: white;
   display: flex;
   align-items: center;
   margin-bottom: 10px;
+  box-shadow: 1px 2px 3px 2px rgba(0, 0, 0, 0.30);
+  border-radius: 24px;
+  padding-right: 0%;
+  flex-direction: row;
+  justify-content: space-evenly;
+  padding-top: 3%;
 }
 
 .logo-container {
@@ -117,4 +129,11 @@ background-color: white;
 .info-container p {
   margin: 0;
   padding: 2px 0;
+}
+// fin locataire
+.modifier{
+  margin-bottom: 3%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }

@@ -6,7 +6,7 @@
       <%= link_to realties_path, class: 'btn btn-light' do %>
         <i class="fas fa-arrow-left"></i>
       <% end %>
-      <%= link_to realty_path(@realty), data: { turbo_method: :delete, turbo_confirm: "Êtes-vous sûr ?" }, class: "btn btn-danger" do %>
+      <%= link_to realty_path(@realty), data: { turbo_method: :delete, turbo_confirm: "Êtes-vous sûr ?" } do %>
         <i class="fas fa-trash"></i>
       <% end %>
     </div>
@@ -17,7 +17,7 @@
     <div class="titre-appartement">
       <h3><%= @realty.name %></h3>
     </div>
-    <%= image_tag 'home.jpg', alt: 'Appartement' %>
+    <%= image_tag 'appart.jpg', alt: 'Appartement' %>
   </div>
   <div class="info-container">
     <div class="info-card">
@@ -73,6 +73,9 @@
     </div>
   </div>
 <% end %>
+    <div class="modifier">
+      <%= link_to 'Modifier', edit_realty_path(@realty), class: 'btn btn-primary mr-2' %>
+    </div>
 
 <%# Fonctionnalités  %>
       <div>
@@ -85,9 +88,6 @@
     </div>
 
     <div class="card-footer bg-light">
-      <div class="d-flex justify-content-end">
-        <%= link_to 'Modifier', edit_realty_path(@realty), class: 'btn btn-primary mr-2' %>
-      </div>
     </div>
   </div>
 </div>
