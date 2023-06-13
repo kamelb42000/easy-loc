@@ -13,7 +13,7 @@ class MessagesController < ApplicationController
       if @message.save
         RealtyChannel.broadcast_to(
           @realty,
-          render_to_string(partial: "message", locals: {message: @message})
+          { message: @message, sender_id: current_user.id, sender_name: current_user.full_name, date: l(@message.created_at, format: "%a %b %e à %Hh%M ") }
         )
         head :ok
 
