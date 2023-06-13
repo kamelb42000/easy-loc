@@ -27,7 +27,7 @@ Message.create!(content: "Bonjour Monsieur Besseghier, je vous contacte concerna
 puts "Document created!"
 
 claim = Claim.create!(title: "Chaudière : erreur 104", content: "La chaudière a cessé de fonctionner depuis le 12/06/2023. Elle affiche le message d'erreur '104'. ", realty: realty1, tenant: user2)
-claim.photo.attach(io: File.open(Rails.root.join('db', 'assets_seed', 'claims', 'erreur_104.png')), filename: "erreur-104.png", content_type: "image/png")
+claim.photo.attach(io: File.open(Rails.root.join('db', 'assets_seed', 'claims', 'Erreur_104.png')), filename: "Erreur-104.png", content_type: "image/png")
 
 Tenant.create!(enter_date: Date.today, out_date: Date.today, realty: realty1, user: user2)
 puts "Creating tenants ..."
@@ -37,5 +37,5 @@ document.photo.attach(io: File.open(Rails.root.join('db', 'assets_seed', 'docume
 document = Document.create!(name: "Carte d'identité", realty: realty1)
 document.photo.attach(io: File.open(Rails.root.join('db', 'assets_seed', 'documents', 'ID_card.pdf')), filename: "carte-d'idendité.pdf", content_type: "image/pdf")
 document = Document.create!(name: "APL", realty: realty1)
-document.photo.attach(io: File.open(Rails.root.join('db', 'assets_seed', 'documents', 'CAF.pdf')), filename: "APL.pdf", content_type: "image/pdf")
+document.photo.attach(io: File.open(Rails.root.join('db', 'assets_seed', 'documents', 'Caf.pdf')), filename: "APL.pdf", content_type: "image/pdf")
 document.save

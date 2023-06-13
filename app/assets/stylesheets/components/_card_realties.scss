@@ -2,56 +2,10 @@
   perspective: 1000px;
   width: 100%;
   height: auto;
+  border:none;
  /* Contrôle le ratio de la carte (hauteur / largeur) */
 
 }
 .h2{
   padding-top: 10%;
-}
-.col-md-4{
-  margin-top: 10%;
-}
-.card-contain{
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  justify-content: center;
-  text-decoration: none;
-}
-.title h5{
-  display: flex;
-  flex-direction: column;
-  padding-top: 10%;
-  text-decoration: none;
-}
-.text h5{
-  display: flex;
-  flex-direction: column;
-  padding-top: 10%;
-  text-decoration: none;
-}
-.card-name{
-  display: flex;
-  line-height: 1REM;
-  flex-wrap: nowrap;
-  box-shadow: 2px 6px 12px 20px rgba(0, 0, 0, 0.14);
-}
-
-.card-name i{
-  font-size: 400%;
-  padding-left: 5%;
-  padding-top: 3%;
-  margin-right: 5%;
-  box-sizing: border-box;
-  border-radius: 24px;
-}
-
-.Ajout{
-  display: flex;
-  justify-content: center;
-}
-
-a {
-  text-decoration: none;
-  color: darkgrey;
 }
