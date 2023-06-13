@@ -1,24 +1,78 @@
 <div class="container">
   <div class="card">
     <div class="card-header">
-      <h3>Bienvenue sur notre plateforme en ligne.</h3>
+      <h3>Bienvenue sur Easy loc</h3>
     </div>
+    <%= image_tag("phone.jpg", class: "image-présentation", alt: "Smartphone") %>
     <div class="card-body">
-      <p class="card-text"> Nous nous engageons à mettre relation entre propriétaires et locataires. Notre site immobilier offre une solution pratique et efficace pour faciliter la recherche de logements et la gestion des biens immobiliers. Que vous soyez propriétaire à la recherche d'un locataire fiable ou locataire à la recherche d'un logement idéal, notre plateforme vous accompagne tout au long du processus.</p>
+      <p class="card-text">Une application qui permet de mettre en relation les locataires et les propriétaires pour une gestion plus facile.</p>
       <a href="<%= new_user_session_path %>" class="btn btn-primary">Identifiez-Vous</a>
     </div>
   </div>
-    <div class="row6">
-      <p>
-      <div class="card mb-3">
-        <div class="card-body">
-          <h5 class="card-title">Les locataires</h5>
-      Profils d'utilisateurs :</p>
-        <p class="card-text"> Nous mettons au oeur de notre applications les locataires qui pourront effectuer des recherches avancées en fonction de leurs critères spécifiques tels que la localisation, la taille du logement, le loyer maximum, etc.
-          Les propriétaires peuvent publier des annonces détaillées mettant en valeur les caractéristiques de leur bien immobilier, ce qui permet aux locataires de trouver plus facilement les logements qui correspondent à leurs besoins</p>
-      </div>
+  <div class="titre2-home">
+  <h3>Concept de l'application</h3>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <%= image_tag("accessible.jpg", class: "image-présentation", alt: "Accessible", width: "100%", height: "100%") %>
     </div>
-      <div class="row-6">
+    <div class="card-body">
+      <h3>Accessible à Tous</h3>
+    </div>
+  </div>
+
+ <div class="card">
+    <div class="card-header">
+      <%= image_tag("horloge.jpg", class: "image-présentation", alt: "Accessible", width: "100%", height: "100%") %>
+    </div>
+    <div class="card-body">
+      <h3>Disponible 7j/7 et 24h/24</h3>
+    </div>
+  </div>
+
+<div class="card">
+    <div class="card-header">
+      <%= image_tag("messagerie.jpg", class: "image-présentation", alt: "Accessible", width: "100%", height: "100%") %>
+    </div>
+    <div class="card-body">
+      <h3>Messagerie Sécurisée</h3>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+<%# <div class="card-group">
+  <div class="card">
+    <i class="fa-solid fa-mobile-screen-button fa-2xl"></i>
+    </div>
+  </div>
+  <div class="card">
+  <i class="fa-solid fa-arrow-right-to-bracket fa-2xl"></i>
+      <h5 class="card-title">Communication simplifiée</h5>
+    </div>
+  </div>
+  <div class="card">
+    <i class="fa-regular fa-envelope fa-2xl" style="color: #0b3d7f;"></i>
+      <h5 class="card-title">Messagerie Sécurisée</h5>
+    </div>
+  </div>
+</div> %>
+
+
+
+
+
+
+
+
+
+      <%# <div class="row-6">
         <div class="card mb-3">
                 <div class="card-body">
                   <h5 class="card-title">Creation de profils</h5>
@@ -38,7 +92,7 @@
             Gestion des visites et des demandes :</p>
           </div>
         </div>
-      </div>
+      </div> %>
 
 
 <%#
@@ -48,7 +102,6 @@
         Conclusion :
         Notre plateforme de mise en relation propriétaire-locataire est conçue pour faciliter le processus de recherche de logements et de gestion des biens immobiliers. Que vous soyez propriétaire ou locataire, notre site vous offre une expérience utilisateur conviviale, des outils pratiques et une communication directe pour faciliter les transactions immobilières en toute confiance. Rejoignez notre communauté dès aujourd'hui et trouvez votre logement idéal ou le locataire idéal en quelques clics !</p>
       </div> %>
-
     </div>
   </div>
 </div>

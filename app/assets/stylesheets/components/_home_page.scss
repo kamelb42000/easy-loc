@@ -6,6 +6,7 @@
 .card {
   border: none;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 10%;
 }
 
 .card-header {
@@ -41,4 +42,19 @@
 .btn-primary.active {
   background-color: #0062cc;
   border-color: #005cbf;
+}
+
+.carte-explication-home{
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 25px;
+  box-shadow: 5px 5px 5px rgba(0,0,0,0.25);
+}
+.card-group{
+  margin-top: 10%;
+}
+
+.card-header{
+  
 }

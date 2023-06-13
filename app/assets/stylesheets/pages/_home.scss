@@ -1,6 +1,5 @@
 // Specific CSS for your home-page
 body{
-
   background-color: white;
 }
 .container{
@@ -11,4 +10,21 @@ body{
 }
 .card_mb-3{
   height: auto;
+}
+.card{
+  margin-bottom: 10%;
+}
+.titre2-home{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.titre2-home h3{
+  margin-bottom: 10%;
+  font-weight: 700;
+}
+
+.card-body h3{
+  text-align: center;
 }
