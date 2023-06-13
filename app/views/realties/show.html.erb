@@ -1,48 +1,92 @@
+<%# <div class="titre-show-realty">
+</div> %>
 <div class="container">
-  <h1 class="mt-5">Realty Details</h1>
-
-  <div class="card mt-4">
-    <div class="card-header d-flex justify-content-end">
-      <%= link_to realties_path, class: 'btn btn-secondary' do %>
+  <div class="card-mt-4">
+    <div class="d-flex justify-content-between">
+      <%= link_to realties_path, class: 'btn btn-light' do %>
         <i class="fas fa-arrow-left"></i>
+      <% end %>
+      <%= link_to realty_path(@realty), data: { turbo_method: :delete, turbo_confirm: "Êtes-vous sûr ?" }, class: "btn btn-danger" do %>
+        <i class="fas fa-trash"></i>
       <% end %>
     </div>
 
-    <div class="card-body">
-      <p class="card-text"><strong>Name:</strong> <%= @realty.name %></p>
-      <p class="card-text"><strong>Rent:</strong> <%= @realty.rent %></p>
-      <p class="card-text"><strong>Category:</strong> <%= @realty.category %></p>
-      <p class="card-text"><strong>Address:</strong> <%= @realty.address %></p>
-      <p class="card-text"><strong>Payment Date:</strong> <%= @realty.payment_date %></p> <!-- Ajouter cette ligne -->
-      <div class="card-text">
-        <strong>Tenants:</strong>
-        <% @realty.tenants.each do |tenant| %>
-          <div class="d-flex justify-content-around">
-            <%= tenant.user.full_name %>
-            <p><strong>Date d'entrée dans le logement :</strong> <%= tenant.enter_date %></p>
-            <p><strong>Date de sortie du logement :</strong> <%= tenant.out_date %></p>
-            <% if tenant.enter_date && tenant.out_date %>
-              <p><strong>Durée de location :</strong> <%= (tenant.out_date - tenant.enter_date).to_i %> jours</p>
-            <% end %>
-          </div>
-        <% end %>
+<%# détails appartement %>
+  <div class="realty-details">
+  <div class="image-container">
+    <div class="titre-appartement">
+      <h3><%= @realty.name %></h3>
+    </div>
+    <%= image_tag 'home.jpg', alt: 'Appartement' %>
+  </div>
+  <div class="info-container">
+    <div class="info-card">
+      <div class="info-card-icon">
+        <i class="fas fa-money-bill-wave"></i>
       </div>
+      <div class="info-card-content">
+        <p><%= @realty.rent %>/mois</p>
+      </div>
+    </div>
 
-      <div class="mt-4">
-        <div class="btn-group" role="group" aria-label="Additional Actions">
-          <%= link_to 'Claims', realty_claims_path(@realty, @claim), class: 'btn btn-info mr-2' %>
+    <div class="info-card">
+      <div class="info-card-icon">
+        <i class="fas fa-home"></i>
+      </div>
+      <div class="info-card-content">
+        <p> <%= @realty.category %></p>
+      </div>
+    </div>
+    <div class="info-card">
+      <div class="info-card-icon">
+        <i class="fas fa-map-marker-alt"></i>
+      </div>
+      <div class="info-card-content">
+        <p> <%= @realty.address %></p>
+      </div>
+    </div>
+    <div class="info-card">
+      <div class="info-card-icon">
+        <i class="fas fa-calendar-alt"></i>
+      </div>
+      <div class="info-card-content">
+        <p><strong>Paiement</strong> <%= @realty.payment_date %></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%# ----- locataire ----- %>
+<% @realty.tenants.each do |tenant| %>
+  <div class="tenant-container">
+    <div class="logo-container">
+      <i class="fa fa-user fa-2x"></i>
+    </div>
+    <div class="info-container2">
+
+      <p><strong>Nom :</strong> <%= tenant.user.full_name %></p>
+      <p><strong>Date d'entrée :</strong> <%= tenant.enter_date %></p>
+      <p><strong>Date de sortie :</strong> <%= tenant.out_date %></p>
+      <% if tenant.enter_date && tenant.out_date %>
+        <p><strong>Durée de location :</strong> <%= (tenant.out_date - tenant.enter_date).to_i %> jours</p>
+      <% end %>
+    </div>
+  </div>
+<% end %>
+
+<%# Fonctionnalités  %>
+      <div>
+        <div>
+          <%= link_to 'Réclamations', realty_claims_path(@realty, @claim), class: 'btn btn-info mr-2' %>
           <%= link_to 'Documents', realty_documents_path(@realty, @document), class: 'btn btn-info mr-2' %>
           <%= link_to 'Messages', realty_messages_path(@realty, @message), class: 'btn btn-info mr-2' %>
         </div>
       </div>
     </div>
 
-    <div class="card-footer d-flex justify-content-end">
-      <div class="btn-group" role="group" aria-label="Actions">
-        <%= link_to 'Edit', edit_realty_path(@realty), class: 'btn btn-primary' %>
-        <%= link_to realty_path(@realty), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn btn-danger" do %>
-          <i class="fas fa-trash"></i>
-        <% end %>
+    <div class="card-footer bg-light">
+      <div class="d-flex justify-content-end">
+        <%= link_to 'Modifier', edit_realty_path(@realty), class: 'btn btn-primary mr-2' %>
       </div>
     </div>
   </div>

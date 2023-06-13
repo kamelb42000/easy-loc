@@ -1,0 +1,120 @@
+.ml-auto{
+  padding-left: 85%;
+}
+.card-mt-4{
+  background-color: white;
+}
+.btn-light{
+  background-color: white;
+}
+
+.titre-show-realty{
+  margin-top: 0%;
+}
+
+.titre-appartement{
+text-align: center;
+background-color: white;
+}
+.card-category {
+  background-size: cover;
+  background-position: center;
+  justify-content: center;
+  height: 180px;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  background-image: url("home.jpg");
+}
+.image-container img {
+  width: 100%;
+  height: 100%;
+}
+
+// détails appartement
+.realty-details {
+  align-items: center;
+}
+
+.titre-appartement {
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.info-container {
+  display: flex;
+}
+
+.info-card {
+  display: flex;
+  flex-direction: column;
+  background-color: #f8f8f8;
+  border-radius: $border-radius;
+  margin-right: 10px;
+  padding: 10px;
+  align-items: center;
+  text-align: center;
+}
+
+.info-card-icon {
+  width: 30px;
+  height: 30px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.info-card-content {
+  font-size: 14px;
+}
+
+.fa-money-bill-wave {
+  color: #ff9800;
+}
+
+.fa-home {
+  color: #03a9f4;
+}
+
+.fa-map-marker-alt {
+  color: #4caf50;
+}
+
+.fa-calendar-alt {
+  color: #9c27b0;
+}
+
+// locataire
+
+.tenant-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.logo-container {
+  margin-right: 10px;
+}
+
+.logo-container img {
+  width: 40px;
+  height: 40px;
+}
+
+.info-container2 {
+  display: flex;
+  flex-direction: column;
+}
+
+.info-container p {
+  margin: 0;
+  padding: 2px 0;
+}
