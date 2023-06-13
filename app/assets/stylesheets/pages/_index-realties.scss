@@ -1,0 +1,69 @@
+.titre-index-realties h2{
+  font-weight: bold;
+  font-size: 2rem;
+  margin-top: 5%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-left: 5%;
+}
+
+.card-contain{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-decoration: none;
+  border-radius: 24px;
+}
+.title h5{
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+}
+.text h5{
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+}
+.card-name{
+  display: flex;
+  line-height: 1REM;
+  box-shadow: 1px 2px 3px 2px rgba(0, 0, 0, 0.30);
+  border-radius: 16px;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 0%;
+  margin-right: 5%;
+  margin-left: 5%;
+}
+
+svg{
+  padding-left: 5%;
+  padding-top: 3%;
+  margin-right: 5%;
+  box-sizing: border-box;
+  border-radius: 24px;
+  width: 80%;
+  height: 100%;
+  background-color: white;
+}
+
+.Ajout{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10%;
+}
+
+a {
+  text-decoration: none;
+  color: darkgrey;
+  border:none;
+  background-color:white;
+}
+
+.user-name-realties{
+  display: flex;
+  align-items: center;
+}
