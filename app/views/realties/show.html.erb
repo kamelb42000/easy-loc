@@ -48,7 +48,11 @@
         <i class="fas fa-calendar-alt"></i>
       </div>
       <div class="info-card-content">
-        <p><strong>Paiement</strong> <%= @realty.payment_date.strftime("%d-%m-%y") %></p>
+        <% if @realty.payment_date.present? %>
+          <p><strong>Paiement</strong> <%= @realty.payment_date.strftime("%d-%m-%y") %></p>
+        <% else %>
+          <p><strong>Paiement</strong> Date de paiement non spécifiée</p>
+        <% end %>
       </div>
     </div>
   </div>
