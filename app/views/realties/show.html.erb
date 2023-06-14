@@ -1,95 +1,69 @@
-<div class="container-show-realty">
-  <div class="card-mt-4">
-    <div class="d-flex justify-content-between">
-      <%= link_to realties_path, class: 'btn btn-light' do %>
-        <i class="fas fa-arrow-left"></i>
-      <% end %>
-      <%= link_to realty_path(@realty), data: { turbo_method: :delete, turbo_confirm: "Êtes-vous sûr ?" } do %>
-        <i class="fas fa-trash"></i>
-      <% end %>
-    </div>
-
-<%# détails appartement %>
-  <div class="realty-details">
-  <div class="image-container">
-    <div class="titre-appartement">
-      <h3><%= @realty.name %></h3>
-    </div>
-    <%= image_tag 'appart.jpg', alt: 'Appartement' %>
-  </div>
-  <div class="info-container">
-    <div class="info-card">
-      <div class="info-card-icon">
-        <i class="fas fa-money-bill-wave"></i>
-      </div>
-      <div class="info-card-content">
-        <p><%= @realty.rent %>/mois</p>
-      </div>
-    </div>
-
-    <div class="info-card">
-      <div class="info-card-icon">
-        <i class="fas fa-home"></i>
-      </div>
-      <div class="info-card-content">
-        <p> <%= @realty.category %></p>
-      </div>
-    </div>
-    <div class="info-card">
-      <div class="info-card-icon">
-        <i class="fas fa-map-marker-alt"></i>
-      </div>
-      <div class="info-card-content">
-        <p> <%= @realty.address %></p>
-      </div>
-    </div>
-    <div class="info-card">
-      <div class="info-card-icon">
-        <i class="fas fa-calendar-alt"></i>
-      </div>
-      <div class="info-card-content">
-        <% if @realty.payment_date.present? %>
-          <p><strong>Paiement</strong> <%= @realty.payment_date.strftime("%d-%m-%y") %></p>
-        <% else %>
-          <p><strong>Paiement</strong> Date de paiement non spécifiée</p>
-        <% end %>
-      </div>
-    </div>
+<div class="image-container">
+  <%= image_tag 'appart.jpg', alt: 'Appartement' %>
+  <div class="d-flex justify-content-between">
+    <%= link_to realties_path, class: 'btn-light' do %>
+      <i class="fas fa-arrow-left"></i>
+    <% end %>
   </div>
 </div>
 
-<%# ----- locataire ----- %>
-<% @realty.tenants.each do |tenant| %>
-  <div class="tenant-container">
-    <div class="logo-container">
-      <i class="fa fa-user fa-2x"></i>
-    </div>
-    <div class="info-container2">
-
-      <p><strong>Nom :</strong> <%= tenant.user.full_name %></p>
-      <p><strong>Date d'entrée :</strong> <%= tenant.enter_date.strftime("%d-%m-%y") %></p>
-      <p><strong>Date de sortie :</strong> <%= tenant.out_date.strftime("%d-%m-%y") %></p>
-      <% if tenant.enter_date && tenant.out_date.strftime("%d-%m-%y") %>
-        <p><strong>Durée de location :</strong> <%= (tenant.out_date - tenant.enter_date).to_i %> jours</p>
+    <div class="titre-appartement">
+      <h3><%= @realty.name %></h3>
+      <%= link_to edit_realty_path(@realty) do %>
+        <i class="fas fa-edit"></i>
       <% end %>
     </div>
-  </div>
-<% end %>
-    <div class="modifier">
-      <%= link_to 'Modifier', edit_realty_path(@realty), class: 'btn btn-primary mr-2' %>
-    </div>
+    <h4>Mon logement</h4>
+<div class="container-show-realty">
+  <div class="realty-details">
+    <div class="info-container">
+      <div class="info-card">
+          <i class="fas fa-map-marker-alt"></i>
+          <div class="info-card-content-titre">
+          <p><%= @realty.address %></p>
+        </div>
+      </div>
 
-<%# Fonctionnalités  %>
-      <div>
-        <div>
-          <%= link_to 'Réclamations', realty_claims_path(@realty, @claim), class: 'btn btn-info mr-2' %>
-          <%= link_to 'Documents', realty_documents_path(@realty, @document), class: 'btn btn-info mr-2' %>
-          <%= link_to 'Messages', realty_messages_path(@realty, @message), class: 'btn btn-info mr-2' %>
+      <div class="info-card">
+          <i class="fas fa-money-bill-wave"></i>
+        <div class="info-card-content-titre">
+          <p>Loyer</p>
+          <%= @realty.rent %>/mois
+          <%= @realty.payment_date %>
         </div>
       </div>
     </div>
+  </div>
 
-    <div class="card-footer bg-light">
+  <h5>Mes locataires</h5>
+  <% @realty.tenants.each do |tenant| %>
+    <div class="tenant-container">
+      <div class="info-container2">
+        <div class="info-name">
+        <i class="fa fa-user fa-2x"></i>
+        <%= tenant.user.full_name %>
+        </div>
+        <div class="info-date">
+        <p><strong>Date d'entrée :</strong> <%= tenant.enter_date %></p>
+        <p><strong>Date de sortie :</strong> <%= tenant.out_date %></p>
+        </div>
+        <div class="info-dure">
+        <% if tenant.enter_date && tenant.out_date %>
+          <p><strong>Durée de location :</strong> <%= (tenant.out_date - tenant.enter_date).to_i %> jours</p>
+        <% end %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  <div>
+    <div>
+      <%= link_to 'Réclamations', realty_claims_path(@realty, @claim), class: 'btn btn-info ' %>
+      <%= link_to 'Documents', realty_documents_path(@realty, @document), class: 'btn btn-info ' %>
+      <%= link_to 'Messages', realty_messages_path(@realty, @message), class: 'btn btn-info ' %>
     </div>
   </div>
+</div>
+<div class="card-footer bg-light"></div>
+</div>
+</div>
 </div>
