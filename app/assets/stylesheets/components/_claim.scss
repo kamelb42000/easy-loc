@@ -65,6 +65,11 @@
   margin-left: 36%;
 }
 
+.btn-update-claim{
+  margin-left: -4%;
+  margin-top: 3%;
+}
+
 .card-body h5{
   text-align: center;
 }
@@ -112,10 +117,9 @@
 }
 
 //titre acceptation
-.titre-acceptation {
-  display: flex;
-  margin-top: 10%;
-  align-content: center;
-  flex-wrap: wrap;
-  flex-direction: column-reverse;
+.btn-termine-show{
+  background-color: #337ab7;
+  color: white;
+  font-size: 24px;
+  border-radius: 8px;
 }
