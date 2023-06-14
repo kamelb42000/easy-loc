@@ -24,6 +24,8 @@
 }
 .titre_claim h3{
   margin-bottom: 10%;
+  color: grey;
+  font-weight: 700;
 }
 
 .card{
@@ -47,7 +49,6 @@
 }
 
 .btn-retour{
-  padding-left: 85%;
   margin-top: -8%;
   margin-bottom: 10%; ;
 }
@@ -82,6 +83,8 @@
   display: flex;
   justify-content: space-evenly;
   margin-bottom: 10%;
+  margin-top: 10%;
+  margin-left: 12%;
 }
 
 // cercle pour accepter une requete
@@ -118,7 +121,7 @@
 
 //titre acceptation
 .btn-termine-show{
-  background-color: #007bff;
+  background-color: #03a9f4;
   color: white;
   font-size: 24px;
   border-radius: 8px;
@@ -128,4 +131,16 @@
 .titre-acceptation{
   margin-top: 5%;
   margin-left: 3%;
+  text-align: center;
+}
+
+.carte-titre-show-claim {
+  text-align: center;
+}
+
+.btn-path-show-realty{
+  margin-bottom: 10%;
+}
+.card-text{
+  margin-top: 21px;
 }

@@ -1,11 +1,10 @@
+<div class="container_realty" data-controller="realty-subscription" data-realty-subscription-realty-id-value="<%= @realty.id %>" data-realty-subscription-user-id-value="<%= current_user.id %>" >
+
 <div class="btn-retour">
-  <%= link_to realty_path(@realty), class: "btn btn-primary" do %>
+  <%= link_to realty_path(@realty), class: "btn-retour" do %>
     <i class="fa-sharp fa-solid fa-arrow-left"></i>
   <% end %>
 </div>
-  <h1><%= @realty.name %></h1>
-<div class="container realty" data-controller="realty-subscription" data-realty-subscription-realty-id-value="<%= @realty.id %>" data-realty-subscription-user-id-value="<%= current_user.id %>" >
-
 
   <div class="messages" data-realty-subscription-target="messages">
     <% @messages.each do |message| %>

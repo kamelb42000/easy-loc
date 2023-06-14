@@ -12,23 +12,17 @@
 }
 
 h4{
-margin-left: 7%;
-width: 113px;
-height: 19px;
-font-family: 'Inter';
-font-style: normal;
-font-weight: 700;
-font-size: 16px;
-line-height: 19px;
-color: #535353;
+  height: 19px;
+  line-height: 19px;
+  margin-bottom: 10px;
+  color: slategray;
+  font-weight: 600;
 }
 
 h5{
   margin-left: 2%;
   width: 113px;
   height: 19px;
-  font-family: 'Inter';
-  font-style: normal;
   font-weight: 700;
   font-size: 16px;
   line-height: 19px;
@@ -79,8 +73,8 @@ h5{
 .info-container {
   display: block;
   margin-bottom: 3%;
-  border: solid;
   border-radius: 12px;
+  border: 1px solid grey;
 }
 
 .info-card {
@@ -111,15 +105,11 @@ h5{
 }
 
 .info-card-content-titre p {
-  width: 159px;
   height: 19px;
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 700;
   font-size: 18px;
   line-height: 19px;
-  color: #000000;
-  margin-bottom: 10%;
+  color: black;
+  font-weight: bolder;
 
 }
 
@@ -161,15 +151,11 @@ right: 10%;
 // locataire
 
 .tenant-container {
-  display: flex;
   align-items: center;
-  margin-bottom: 10px;
   border-radius: 24px;
   padding-right: 0%;
-  flex-direction: row;
-  justify-content: space-evenly;
   padding-top: 3%;
-  border: solid;
+  border: 1px solid grey;
 }
 
 .logo-container {
@@ -194,10 +180,16 @@ right: 10%;
 
 
 .info-name{
-  gap: 12px;
+  display: flex;
+  gap: 24px;
+  font-weight: 800;
+  flex-direction: row;
+  justify-content: flex-start;
+  padding-left: 20px;
 }
 .info-name i{
-  size: 12px;
+  color: #03a9f4;
+  font-size: 27px;
 }
 // fin locataire
 .modifier{
@@ -215,3 +207,84 @@ right: 10%;
   width: 100%;
 }
 
+.loyer-prix{
+  font-weight: bolder;
+  margin-top: 4px;
+}
+
+.icone-billet{
+  margin-top: -12px;
+  margin-top: -11px;
+}
+.info-entrée-show-realty{
+  display: flex;
+  font-weight: 800;
+  flex-direction: row;
+  justify-content: flex-start;
+  margin-top:2%;
+}
+
+.info-entrée-show-realty svg{
+  color: #03a9f4;
+  width: 50px;
+  height: 50px;
+}
+
+.info-entrée-show-realty P{
+  margin-top: 5px;
+}
+
+.enter_date_show_realty .enter_date{
+  margin-top: -22px;
+}
+
+.out_date_show_realty svg{
+  color: #03a9f4;
+  width: 40px;
+  height: 40px;
+  margin-top: 4%;
+}
+
+.out_date_show_realty P{
+  margin-top: 5px;
+}
+
+.out_date_show_realty .out_date{
+  margin-left: -91px;
+  margin-top: 24px;
+}
+
+
+.out_date_show_realty{
+  display: flex;
+  font-weight: 800;
+  flex-direction: row;
+  justify-content: flex-start;
+  margin-top: -14%;
+  margin-left: 186px;
+}
+
+.info-dure svg{
+  color: #03a9f4;
+  width: 52px;
+  height: 40px;
+  margin-top: -4%;
+}
+
+.info-dure{
+  display: flex;
+  font-weight: 800;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.btn-path-show-realty{
+  margin-top: 10%;
+  margin-top: 10%;
+  display: flex;
+  flex-direction: column;
+}
+.btn-path-show-realty a{
+  background-color:#03a9f4;
+  margin-top: 3%;
+}

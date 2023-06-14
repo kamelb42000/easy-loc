@@ -1,20 +1,21 @@
 <div class="image-container">
   <%= image_tag 'appart.jpg', alt: 'Appartement' %>
+
   <div class="d-flex justify-content-between">
     <%= link_to realties_path, class: 'btn-light' do %>
-      <i class="fas fa-arrow-left"></i>
+    <i class="fas fa-arrow-left"></i>
     <% end %>
   </div>
 </div>
 
     <div class="titre-appartement">
-      <h3><%= @realty.name %></h3>
+      <h3><strong><%= @realty.name %></strong></h3>
       <%= link_to edit_realty_path(@realty) do %>
         <i class="fas fa-edit"></i>
       <% end %>
     </div>
-    <h4>Mon logement</h4>
 <div class="container-show-realty">
+    <h4>Mon logement</h4>
   <div class="realty-details">
     <div class="info-container">
       <div class="info-card">
@@ -25,17 +26,21 @@
       </div>
 
       <div class="info-card">
+        <div class="icone-billet">
           <i class="fas fa-money-bill-wave"></i>
+        </div>
         <div class="info-card-content-titre">
-          <p>Loyer</p>
-          <%= @realty.rent %>/mois
-          <%= @realty.payment_date %>
+          <strong><p>Loyer</p></strong>
+            <div class="loyer-prix">
+            <%= @realty.rent %>/mois
+            <%= @realty.payment_date %>
+            </div>
         </div>
       </div>
     </div>
   </div>
 
-  <h5>Mes locataires</h5>
+  <h4>Mes locataires</h4>
   <% @realty.tenants.each do |tenant| %>
     <div class="tenant-container">
       <div class="info-container2">
@@ -44,19 +49,42 @@
         <%= tenant.user.full_name %>
         </div>
         <div class="info-date">
-        <p><strong>Date d'entrée :</strong> <%= tenant.enter_date %></p>
-        <p><strong>Date de sortie :</strong> <%= tenant.out_date %></p>
+        <div class="info-entrée-show-realty">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15M12 9l-3 3m0 0l3 3m-3-3h12.75" />
+          </svg>
+          <div class="enter_date_show_realty">
+            <p><strong>Date d'entrée :</strong> </p>
+            <div class="enter_date">
+              <%= tenant.enter_date %>
+            </div>
+          </div>
+        </div>
+        <div class="out_date_show_realty">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15m3 0l3-3m0 0l-3-3m3 3H9" />
+        </svg>
+        <p><strong>Fin de bail :</strong>
+         <div class="out_date">
+        <%= tenant.out_date %></p>
+        </div>
+      </div>
         </div>
         <div class="info-dure">
-        <% if tenant.enter_date && tenant.out_date %>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+        <div class="time-date-show-realty">
+       <% if tenant.enter_date && tenant.out_date %>
           <p><strong>Durée de location :</strong> <%= (tenant.out_date - tenant.enter_date).to_i %> jours</p>
         <% end %>
+        </div>
         </div>
       </div>
     </div>
   <% end %>
   <div>
-    <div>
+    <div class= "btn-path-show-realty">
       <%= link_to 'Réclamations', realty_claims_path(@realty, @claim), class: 'btn btn-info ' %>
       <%= link_to 'Documents', realty_documents_path(@realty, @document), class: 'btn btn-info ' %>
       <%= link_to 'Messages', realty_messages_path(@realty, @message), class: 'btn btn-info ' %>

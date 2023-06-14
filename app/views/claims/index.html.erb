@@ -5,13 +5,15 @@
     <% end %>
   </div>
   <div class="titre_claim">
-    <h3>Mes Réclamations</h3>
+    <strong><h3>Mes Réclamations</h3></strong>
   </div>
 
   <% @claims.each do |claim| %>
     <div class="card">
       <div class="card-body">
-        <h5 class="card-title"><strong>Intitulé:</strong> <%= claim.title %></h5>
+        <h5 class="card-title"></h5>
+        <strong>Intitulé:</strong>
+        <%= claim.title %>
         <h6 class="card-title"><strong>Date d'enregistrement:</strong> <%= claim.created_at %></h6>
         <p class="card-text"><strong>Nom de l'appartement :</strong> <%= claim.realty.name %>.</p>
         <div class="btn-primary-center">
