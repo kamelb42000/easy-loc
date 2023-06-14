@@ -15,6 +15,9 @@ module EasyLoc
     end
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
+    config.i18n.available_locales [:fr]
+    config.i18n.default_locale = :fr
+    config.i18n.raise_on_missing_translations = true
 
     # Configuration for the application, engines, and railties goes here.
     #

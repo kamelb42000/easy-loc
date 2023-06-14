@@ -48,7 +48,7 @@
         <i class="fas fa-calendar-alt"></i>
       </div>
       <div class="info-card-content">
-        <p><strong>Paiement</strong> <%= @realty.payment_date %></p>
+        <p><strong>Paiement</strong> <%= @realty.payment_date.strftime("%d-%m-%y") %></p>
       </div>
     </div>
   </div>
@@ -63,9 +63,9 @@
     <div class="info-container2">
 
       <p><strong>Nom :</strong> <%= tenant.user.full_name %></p>
-      <p><strong>Date d'entrée :</strong> <%= tenant.enter_date %></p>
-      <p><strong>Date de sortie :</strong> <%= tenant.out_date %></p>
-      <% if tenant.enter_date && tenant.out_date %>
+      <p><strong>Date d'entrée :</strong> <%= tenant.enter_date.strftime("%d-%m-%y") %></p>
+      <p><strong>Date de sortie :</strong> <%= tenant.out_date.strftime("%d-%m-%y") %></p>
+      <% if tenant.enter_date && tenant.out_date.strftime("%d-%m-%y") %>
         <p><strong>Durée de location :</strong> <%= (tenant.out_date - tenant.enter_date).to_i %> jours</p>
       <% end %>
     </div>

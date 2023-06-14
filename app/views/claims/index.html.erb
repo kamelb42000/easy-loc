@@ -23,7 +23,23 @@
           </div>
       </div>
     </div>
+
   <% end %>
+
+    <div class="card-body">
+      <h5 class="card-title">Titre : <%= claim.title %></h5>
+      <h5 class="card-title"><%= claim.status %></h5>
+      <h5 class="card-title"><%= claim.created_at.strftime("%d/%m/%y") %></h5>
+      <p class="card-text">Contenu de la demande : <%= claim.content %>.</p>
+      <p class="card-text">Nom de l'appartement : <%= claim.realty.name %>.</p>
+      <a href="<%= realty_claim_path(claim.realty, claim) %>" class="btn btn-primary">Visualiser</a>
+      <% if claim.tenant == current_user %>
+        <a href="<%= edit_realty_claim_path(claim.realty, claim) %>" class="btn btn-primary">Mettre à jour</a>
+      <% end %>
+    </div>
+  </div>
+<% end %>
+
 
 
   <div class = "reclamation">
@@ -31,3 +47,6 @@
   </div>
 
 </div>
+
+
+<%= console %>
