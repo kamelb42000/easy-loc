@@ -15,6 +15,7 @@
     <div class="card-body">
       <h5 class="card-title">Titre : <%= claim.title %></h5>
       <h5 class="card-title"><%= claim.status %></h5>
+      <h5 class="card-title"><%= claim.created_at %></h5>
       <p class="card-text">Contenu de la demande : <%= claim.content %>.</p>
       <p class="card-text">Nom de l'appartement : <%= claim.realty.name %>.</p>
       <a href="<%= realty_claim_path(claim.realty, claim) %>" class="btn btn-primary">Visualiser</a>
