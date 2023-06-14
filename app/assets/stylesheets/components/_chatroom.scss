@@ -32,7 +32,7 @@
 }
 
 .btn-icon {
-  padding: 10px;
+  padding: 10%;
   background-color: #ccc;
   border-radius: 0 5px 5px 0;
 }
@@ -46,14 +46,14 @@
 
 /* Styles pour l'icône de l'avion en papier */
 .fa-paper-plane {
-  color: #fff;
+  color: white;
 }
 
 .message-bubble {
   display: inline-block;
   background-color: #e5e5ea;
-  border-radius: 10px;
-  padding: 10px;
+  border-radius: 12px;
+  padding: 8px 16px;
   margin-bottom: 10px;
 }
 
@@ -67,16 +67,16 @@
   color: #000;
 }
 
-.message-user strong {
-  font-weight: bold;
-}
+// .message-user strong {
+//   font-weight: bold;
+// }
 
-.message-details small {
-  color: #999;
-}
+// .message-details small {
+//   color: #999;
+// }
 
 .message-text {
-  margin-top: 5px;
+  margin-top: 2%;
 }
 
 .align-self-end {
@@ -86,3 +86,5 @@
 .text-end {
   text-align: right;
 }
+
+

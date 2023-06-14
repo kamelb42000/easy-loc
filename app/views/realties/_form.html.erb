@@ -1,3 +1,4 @@
+
 <%= simple_form_for(@realty, html: { class: 'form' }) do |form| %>
   <% if @realty.errors.any? %>
     <div id="error_explanation" class="alert alert-danger">
@@ -10,9 +11,15 @@
       </ul>
     </div>
   <% end %>
-
+    <div class="btn-retour">
+      <%= link_to realty_path(@realty), class: "btn btn-primary" do %>
+        <i class="fa-sharp fa-solid fa-arrow-left"></i>
+    <% end %>
+    </div>
   <div class="form-group">
-    <%= form.label :nom %>
+
+    <%= form.label :Nom %>
+
     <%= form.text_field :name, class: 'form-control' %>
   </div>
 
@@ -21,10 +28,18 @@
     <%= form.text_field :rent, class: 'form-control' %>
   </div>
 
-  <div class="form-group">
-    <%= form.label :Catégorie %>
-    <%= form.select :category, ['Studio','Appartement T2','Appartement T3', 'Loft', 'Maison'], {}, class: 'form-control' %>
+
+  <div class="form-group select-wrapper">
+  <%= form.label :Catégorie %>
+  <div class="input-with-icon">
+    <%= form.select :category, ['Studio', 'Appartement T2', 'Appartement T3', 'Loft', 'Maison'], {}, class: 'form-control' %>
+    <i class="fas fa-chevron-down"></i>
+
   </div>
+</div>
+
+
+
 
   <div class="form-group">
     <%= form.label :Adresse %>
@@ -32,19 +47,26 @@
   </div>
 
   <div class="form-group">
-    <%= form.label :Date_de_paiement %>
+
+    <%= form.label :Date_de_paiement_du_loyer%>
+
     <%= form.date_field :payment_date %>
   </div>
 
    <div class="form-group">
-    <%= label_tag  :Locataire_mail %>
+
+    <%= label_tag  :Mail_du_locataire %>
+
     <%= text_field_tag :tenant_email%>
   </div>
+<%= form.input :tenant_enter_date, as: :date, label: "Date d'entrée", input_html: { value: form.object.tenant_enter_date&.strftime('%d/%m/%Y') }, format: :default %>
+<%= form.input :tenant_out_date, as: :date, label: "Date de sortie", input_html: { value: form.object.tenant_out_date&.strftime('%d/%m/%Y') }, format: :default %>
 
-  <%= form.input :tenant_enter_date, as: :date %>
-  <%= form.input :tenant_out_date, as: :date %>
 
-  <div class="actions">
-    <%= form.button :submit, class: 'btn btn-primary' %>
-  </div>
+
+
+
+<div class="actions text-center">
+  <%= form.button :submit, value: 'Mettre à jour', class: 'btn btn-primary' %>
+</div>
 <% end %>

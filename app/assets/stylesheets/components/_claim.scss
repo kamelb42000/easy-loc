@@ -1,3 +1,16 @@
+.container_claim{
+  margin-top: 10%;
+  padding: 0 3%;
+}
+
+.card-body{
+  flex: 1 1 auto;
+  padding: var(--bs-card-spacer-y) var(--bs-card-spacer-x);
+  color: var(--bs-card-color);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
+  background-color: white;
+  border-radius: 16px;
+}
 .reclamation {
   display: flex;
   justify-content: center;
@@ -6,7 +19,20 @@
 
 .titre_claim{
   margin-top: 10%;
+  margin-left: 3%;
+  margin-bottom: 24px;
 }
+.titre_claim h3{
+  margin-bottom: 10%;
+}
+
+.card{
+  width: 100%;
+  height: auto;
+  border:none;
+  margin-top: 5%;
+}
+
 
 .btn-claim-edit{
   margin-top: 10%;
@@ -17,11 +43,83 @@
 
 .titre-show_claim{
   margin-top: 10%;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
+  margin-bottom: 3% ;
 }
 
 .btn-retour{
   padding-left: 85%;
+  margin-top: -8%;
+  margin-bottom: 10%; ;
+}
+
+.btn-primary-claim{
+  background-color: transparent;
+}
+
+.btn-primary-claim i{
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.btn-primary-center{
+  margin-left: 36%;
+}
+
+.btn-update-claim{
+  margin-left: -4%;
+  margin-top: 3%;
+}
+
+.card-body h5{
+  text-align: center;
+}
+
+.card-title{
+  margin-top: 10%;
+}
+
+.bouton-acceptation {
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 10%;
+}
+
+// cercle pour accepter une requete
+.btn-validate,
+.btn-delete {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 48px;
+  height: 48px;
+  font-size: 24px;
+  color: white;
+}
+
+.btn-validate {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 72px;
+  height: 72px;
+  background-color: rgb(10, 190, 10);
+  border-radius: 50%;
+}
+
+.btn-delete {
+  background-color: red;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+}
+
+//titre acceptation
+.btn-termine-show{
+  background-color: #337ab7;
+  color: white;
+  font-size: 24px;
+  border-radius: 8px;
 }

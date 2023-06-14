@@ -1,31 +1,33 @@
-<div class ="btn-retour">
-  <%= link_to realty_path(@realty), class: "btn btn-primary" do %>
-    <i class="fa-sharp fa-solid fa-arrow-left"></i>
-  <% end %>
-</div>
-<div class="titre_claim">
-  <h3>Reclamation</h3>
-</div>
-
-
-<% @claims.each do |claim| %>
-  <div class="card">
-    <div class="card-header">
-    </div>
-    <div class="card-body">
-      <h5 class="card-title">Titre : <%= claim.title %></h5>
-      <h5 class="card-title"><%= claim.status %></h5>
-      <p class="card-text">Contenu de la demande : <%= claim.content %>.</p>
-      <p class="card-text">Nom de l'appartement : <%= claim.realty.name %>.</p>
-      <a href="<%= realty_claim_path(claim.realty, claim) %>" class="btn btn-primary">Visualiser</a>
-      <% if claim.tenant == current_user %>
-        <a href="<%= edit_realty_claim_path(claim.realty, claim) %>" class="btn btn-primary">Mettre à jour</a>
-      <% end %>
-    </div>
+<div class="container_claim">
+  <div class="btn-retour">
+    <%= link_to realty_path(@realty), class: "btn-primary-claim" do %>
+      <i class="fa-sharp fa-solid fa-arrow-left"></i>
+    <% end %>
   </div>
-<% end %>
+  <div class="titre_claim">
+    <h3>Mes Réclamations</h3>
+  </div>
 
+  <% @claims.each do |claim| %>
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title"><strong>Intitulé:</strong> <%= claim.title %></h5>
+        <h6 class="card-title"><strong>Date d'enregistrement:</strong> <%= claim.created_at %></h6>
+        <p class="card-text"><strong>Nom de l'appartement :</strong> <%= claim.realty.name %>.</p>
+        <div class="btn-primary-center">
+          <a href="<%= realty_claim_path(claim.realty, claim) %>" class="btn btn-primary">Visualiser</a>
+          <% if claim.tenant == current_user %>
+            <div class="btn-update-claim">
+              <a href="<%= edit_realty_claim_path(claim.realty, claim) %>" class="btn btn-primary">Mettre à jour</a>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  <% end %>
 
-<div class = "reclamation">
-  <%= link_to 'Ajouter une réclamation', new_realty_claim_path(@realty), class: "btn btn-primary" %>
+  <div class="reclamation">
+    <%= link_to 'Ajouter une réclamation', new_realty_claim_path(@realty), class: "btn btn-primary" %>
+  </div>
+
 </div>

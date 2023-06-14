@@ -11,6 +11,8 @@
 
 .input-group {
   margin-top: 20px;
+  margin-bottom: 10px;
+  border: none;
 }
 
 .input-group .form-control {
@@ -19,8 +21,6 @@
 
 .input-group button {
   border-radius: 0;
-  background-color: transparent;
-  border-color: transparent;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -28,17 +28,32 @@
   font-weight: bold;
   padding: 8px;
   transition: background-color 0.3s;
-}
-
-.input-group button:hover {
-  background-color: #d81b60;
-  border-color: #d81b60;
-}
-
-.input-group button:focus {
-  box-shadow: 0 0 0 0.2rem rgba(255, 64, 129, 0.5);
+  margin-bottom: 16px;
+  border: none;
 }
 
 .input-group button i {
   margin-right: 5px;
+}
+
+.btn-icon{
+  background-color: transparent;
+
+}
+
+.input-group:not(.has-validation) > :not(:last-child):not(.dropdown-toggle):not(.dropdown-menu):not(.form-floating), .input-group:not(.has-validation) > .dropdown-toggle:nth-last-child(n + 3), .input-group:not(.has-validation) > .form-floating:not(:last-child) > .form-control, .input-group:not(.has-validation) > .form-floating:not(:last-child) > .form-select{
+  border-top-right-radius: 0;
+  border: none;
+  background-color: white;
+  border-bottom-right-radius: 0;
+}
+// pour le cercle
+.input-group > :not(:first-child):not(.dropdown-menu):not(.valid-tooltip):not(.valid-feedback):not(.invalid-tooltip):not(.invalid-feedback){
+  margin-right: 2%;
+  border-radius: 50%;
+  background-color: darkviolet;
+  height: 38%;
+  width: 11%;
+  margin-top: 5%;
+  margin-left: 0;
 }
