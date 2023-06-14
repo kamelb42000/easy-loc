@@ -10,10 +10,20 @@
 
   <div class="card">
     <div class="card-body">
-      <h5 class="card-title"><strong>Nom:</strong> <%= @claim.title %></h5>
-      <h5 class="card-title"><strong>Contenu:</strong> <%= @claim.content %></h5>
-      <h5 class="card-title"><strong>Nom de l'appartement:</strong> <%= @claim.realty.name %></h5>
-      <h5 class="card-title"><strong>Nom du lésé:</strong> <%= @claim.tenant.full_name %></h5>
+      <div class="card-title">
+        <div class="carte-titre-show-claim">
+        <h6><strong>Nom de la panne:</strong></h6>
+        <%= @claim.title %>
+        </div>
+        <h6 class="card-title"><strong>Contenu:</strong></h6>
+        <%= @claim.content %>
+        <h6 class="card-title"></h6>
+        <strong>Nom de l'appartement:</strong>
+         <%= @claim.realty.name %>
+        <h6 class="card-title"></h6>
+        <strong>Nom du lésé:</strong>
+        <%= @claim.tenant.full_name %>
+      </div>
     </div>
     <% if @claim.photo.attached? %>
       <%= image_tag(@claim.photo) %>
@@ -37,7 +47,9 @@
       <%= link_to raw('<i class="fa-solid fa-check fa-lg"></i>'), accept_claim_path(@claim), data: { turbo_method: :patch }, class: "btn-validate"  %>
   <% end %>
 
+  <div class="btn-path-show-realty">
   <% if @claim.status == 'in progress' %>
-    <%= link_to 'Terminé', done_claim_path(@claim), data: { turbo_method: :patch }, class: "btn-termine-show" %>
+    <%= link_to 'Terminé', done_claim_path(@claim), data: { turbo_method: :patch }, class: "btn btn-info " %>
   <% end %>
+  </div>
 </div>

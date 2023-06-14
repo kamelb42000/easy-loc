@@ -1,6 +1,7 @@
 .btn-retour{
   margin-top: 10%;
-  padding-left: 85%;
+  padding-left: 5%;
+  z-index:1;
 }
 
 .document li{
@@ -13,7 +14,7 @@
 .document li i{
   margin-right: 0%;
   font-weight: bold;
-  color: #007bff;
+  color: #03a9f4;
   display: flex;
 }
 
@@ -23,4 +24,17 @@
 
 .icone-document{
   display: flex;
+}
+
+.container_claim h6{
+  height: 19px;
+  line-height: 19px;
+  margin-bottom: 10px;
+  color: slategray;
+  font-weight: 600;
+}
+
+.titre-document-ajout{
+  margin-top: 16%;
+  margin-bottom: 3%;
 }
