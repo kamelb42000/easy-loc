@@ -1,12 +1,13 @@
 .titre-index-realties h2{
   font-weight: bold;
   font-size: 2rem;
-  margin-top: 5%;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  margin-left: 5%;
+  margin-bottom: 5%;
+  margin-left: 3%;
 }
+.user-name-realties{
+  margin-left: 3%;
+}
+
 
 .card-contain{
   display: flex;
@@ -29,13 +30,14 @@
 .card-name{
   display: flex;
   line-height: 1REM;
-  box-shadow: 1px 2px 3px 2px rgba(0, 0, 0, 0.30);
+  box-shadow: 1px 2px 3px 2px rgba(0, 0, 0, 0.3);
   border-radius: 16px;
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
   margin: 0%;
   margin-right: 5%;
+  padding: 12px;
   margin-left: 5%;
 }
 
@@ -45,8 +47,8 @@ svg{
   margin-right: 5%;
   box-sizing: border-box;
   border-radius: 24px;
-  width: 80%;
-  height: 100%;
+  width: 40%;
+  height: 100px;
   background-color: white;
 }
 
@@ -56,7 +58,7 @@ svg{
   margin-bottom: 10%;
 }
 
-a {
+a{
   text-decoration: none;
   color: darkgrey;
   border:none;
