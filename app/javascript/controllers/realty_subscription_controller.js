@@ -24,8 +24,7 @@ export default class extends Controller {
     div.id = `message-${data.message.id}`;
 
     if (data.sender_id == this.userIdValue) {
-      div.classList.add('current-user');
-       div.classList.add('align-self-end', 'text-end');
+      div.classList.add('align-self-end', 'text-end', "current-user");
     } else {
       div.classList.add('other-user');
     }
@@ -38,18 +37,18 @@ export default class extends Controller {
 
     let messageUser = document.createElement('div');
     messageUser.classList.add('message-user');
-    messageUser.innerHTML = `<strong>${data.sender_name}</strong>`;
+    // messageUser.innerHTML = `<strong>${data.sender_name}</strong>`;
 
     let messageDetails = document.createElement('div');
     messageDetails.classList.add('message-details');
-    messageDetails.innerHTML = `<small>${data.date}</small>`;
+    // messageDetails.innerHTML = `<small>${data.date}</small>`;
 
     let messageText = document.createElement('div');
     messageText.classList.add('message-text');
     messageText.innerHTML = data.message.content;
 
-    messageContent.appendChild(messageUser);
-    messageContent.appendChild(messageDetails);
+    // messageContent.appendChild(messageUser);
+    // messageContent.appendChild(messageDetails);
     messageContent.appendChild(messageText);
     messageBubble.appendChild(messageContent);
     div.appendChild(messageBubble);

@@ -1,15 +1,15 @@
-<div id="message-<%= message.id %>" class=" <%= 'align-self-end' if current_user == message.user %> <%= 'text-end' if current_user == message.user %>">
+<div id="message-<%= message.id %>" class=" <%= 'align-self-end text-end current-user' if current_user == message.user %>">
   <div class="message-bubble">
     <div class="message-content">
       <div class="message-user">
-        <strong><%= message.user.full_name %></strong>
-      </div>
-      <div class="message-details">
-        <small><%= l(message.created_at, format: "%a %b %e à %Hh%M ") %></small>
+        <%# <strong>= message.user.full_name</strong> %>
       </div>
       <div class="message-text">
         <%= message.content %>
       </div>
+    </div>
+    <div class="message-details">
+      <%# <small>= l(message.created_at, format: "%a %b %e à %Hh%M ")</small> %>
     </div>
   </div>
 </div>
