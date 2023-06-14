@@ -1,5 +1,16 @@
-<h1>Edit Realty</h1>
+<h1>Modification de l'appartement</h1>
+
+ <div class="container-show-realty">
+    <div class="card-mt-4">
+      <%= link_to realty_path(@realty), data: { turbo_method: :delete, turbo_confirm: "Êtes-vous sûr ?" } do %>
+        <i class="fas fa-trash"></i>
+      <% end %>
+    </div>
+  </div>
+<div class="d-flex">
+<%= link_to realty_path(@realty) do %>
+  <i class="fas fa-arrow-left"></i>
+<% end %>
+</div>
 
 <%= render 'form' %>
-
-<%= link_to 'Back', realty_path(@realty) %>

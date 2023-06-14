@@ -1,0 +1,73 @@
+.form {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.error_explanation {
+  margin-bottom: 20px;
+  padding: 10px;
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+  border-radius: 4px;
+}
+
+.error_explanation h2 {
+  margin-top: 0;
+  color: #721c24;
+}
+
+.error_explanation ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.error_explanation li {
+  color: #721c24;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #333;
+}
+
+.form-group input[type="text"],
+.form-group select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.form-group input[type="date"] {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.actions {
+  margin-top: 20px;
+}
+
+.actions button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.actions button:hover {
+  background-color: #0056b3;
+}
