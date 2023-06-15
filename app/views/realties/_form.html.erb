@@ -1,4 +1,3 @@
-
 <%= simple_form_for(@realty, html: { class: 'form' }) do |form| %>
   <% if @realty.errors.any? %>
     <div id="error_explanation" class="alert alert-danger">
@@ -12,7 +11,7 @@
     </div>
   <% end %>
     <div class="btn-retour">
-      <%= link_to realties_path, class: "btn btn-primary" do %>
+      <%= link_to realties_path, class: "btn-retour" do %>
         <i class="fa-sharp fa-solid fa-arrow-left"></i>
     <% end %>
     </div>
@@ -52,11 +51,15 @@
     </div>
   <% end %>
 
-    <% if form.object&.tenants.any? %>
-      <% form.object&.tenants.each do |tenant| %>
-        <%= tenant.user.full_name %>
-      <% end %>
-    <% end %>
+   <% if form.object&.tenants.any? %>
+    <% form.object&.tenants.each do |tenant| %>
+      <% if tenant.user %>
+      <%= tenant.user.full_name %>
+        <% else %>
+      Utilisateur non disponible
+        <% end %>
+     <% end %>
+   <% end %>
 
 
    <div class="form-group">
