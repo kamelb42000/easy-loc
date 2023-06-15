@@ -5,8 +5,12 @@
   <p class="title">otto</p>
 </div>
 
-<div class="container_realty" data-controller="realty-subscription" data-realty-subscription-realty-id-value="<%= @realty.id %>" data-realty-subscription-user-id-value="<%= current_user.id %>" >
-
+<div
+      data-controller="realty-subscription"
+      data-realty-subscription-realty-id-value="<%= @realty.id %>"
+      data-realty-subscription-user-id-value="<%= current_user.id %>"
+      data-realty-subscription-last-message-id-value="<%= @messages.last.id %>"
+      >
 
   <div class="messages" data-realty-subscription-target="messages">
     <% @messages.each do |message| %>
@@ -14,18 +18,21 @@
     <% end %>
   </div>
 
-  <%= form_for [@realty, @message], data: { action: "turbo:submit-end->realty-subscription#resetForm" }, class: "d-flex" do |f| %>
+  <%= form_with model: [@realty, @message], data: { action: "turbo:submit-end->realty-subscription#resetForm" }, class: "d-flex" do |f| %>
     <div class="message-nav-content">
-      <%= f.text_field :content, placeholder: "Message #{@realty.name}", class: "input"  %>
+      <%= f.text_field :content, placeholder: "Votre message...", class: "input"  %>
       <button type="submit" class="btn-icon">
         <i class="fas fa-paper-plane"></i>
       </button>
     </div>
   <% end %>
-</div>
 
-<%# Scroll vers le dernier message %>
-<script>
-    messagesContainer = document.querySelector("body > div.container > div > div");
-    messagesContainer.scrollTo(0, messagesContainer.scrollHeight);
-</script>
+
+  <%# Scroll vers le dernier message %>
+  <script>
+    setTimeout(() => {
+      messagesContainer = document.querySelector(".messages");
+      messagesContainer.scrollTo(0, messagesContainer.scrollHeight);
+    }, 100);
+  </script>
+</div>

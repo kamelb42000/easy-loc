@@ -2,10 +2,19 @@ import { Controller } from "@hotwired/stimulus"
 import { createConsumer } from "@rails/actioncable"
 
 export default class extends Controller {
-  static values = { realtyId: Number, userId: Number }
+  static values = { realtyId: Number, userId: Number, lastMessageId: Number }
   static targets = ["messages"]
 
   connect() {
+    console.log("test");
+    const lastMessage = document.querySelector(`#message-${this.lastMessageIdValue}`)
+    setTimeout(() => {
+      lastMessage.scrollIntoView()
+    }, 300);
+    console.log(this.lastMessageIdValue);
+    // this.messagesTarget.scrollTo(0, this.messagesTarget.scrollHeight);
+    console.log(this.messagesTarget.scrollHeight);
+
     this.channel = createConsumer().subscriptions.create(
       { channel: "RealtyChannel", id: this.realtyIdValue },
       { received: data => this._insertMessageAndScrollDown(data) }
@@ -22,43 +31,20 @@ export default class extends Controller {
   _insertMessageAndScrollDown(data) {
     let div = document.createElement('div');
     div.id = `message-${data.message.id}`;
+    div.classList.add("message");
 
     if (data.sender_id == this.userIdValue) {
-      div.classList.add('align-self-end', 'text-end', "current-user");
-    } else {
-      div.classList.add('other-user');
+      div.classList.add("current-user");
     }
 
-    let messageBubble = document.createElement('div');
-    messageBubble.classList.add('message-bubble');
-
-    let messageContent = document.createElement('div');
-    messageContent.classList.add('message-content');
-
-    let messageUser = document.createElement('div');
-    messageUser.classList.add('message-user');
-    // messageUser.innerHTML = `<strong>${data.sender_name}</strong>`;
-
-    let messageDetails = document.createElement('div');
-    messageDetails.classList.add('message-details');
-    // messageDetails.innerHTML = `<small>${data.date}</small>`;
-
-    let messageText = document.createElement('div');
-    messageText.classList.add('message-text');
-    messageText.innerHTML = data.message.content;
-
-    // messageContent.appendChild(messageUser);
-    // messageContent.appendChild(messageDetails);
-    messageContent.appendChild(messageText);
-    messageBubble.appendChild(messageContent);
-    div.appendChild(messageBubble);
+    div.innerHTML = data.message.content;
 
     this.messagesTarget.appendChild(div);
-    this.messagesTarget.scrollTo(0, this.messagesTarget.scrollHeight);
+    div.scrollIntoView()
   }
 
   resetForm(event) {
-    event.target.reset();
+    event.currentTarget.reset();
   }
 }
 

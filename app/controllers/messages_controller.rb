@@ -10,17 +10,15 @@ class MessagesController < ApplicationController
     @message = Message.new(message_params)
     @message.realty = @realty
     @message.user = current_user
-      if @message.save
-        RealtyChannel.broadcast_to(
-          @realty,
-          { message: @message, sender_id: current_user.id, sender_name: current_user.full_name, date: l(@message.created_at, format: "%a %b %e à %Hh%M ") }
-        )
-        head :ok
-
-        #redirect_to realty_messages_path(@realty)
-       else
-        render :index, status: :unprocessable_entity
-      end
+    if @message.save
+      RealtyChannel.broadcast_to(
+        @realty,
+        { message: @message, sender_id: current_user.id }
+      )
+      head :ok
+    else
+      render :index, status: :unprocessable_entity
+    end
   end
 
  private
