@@ -1,23 +1,19 @@
 <div class="image-container">
   <%= image_tag 'appart.jpg', alt: 'Appartement' %>
 
-  <%= link_to realties_path, class: 'btn-light' do %>
+  <div class="d-flex justify-content-between">
+    <%= link_to realties_path, class: 'btn-light' do %>
     <i class="fas fa-arrow-left"></i>
-    <%# fa-2x a mettre comme gros bouton %>
-  <% end %>
-</div>
-
-<div class="row m-2">
-  <div class="col-12 text-end mt-3">
-    <%= link_to edit_realty_path(@realty) do %>
-      <i class="fas fa-edit" style="font-size: 22px;"></i>
     <% end %>
   </div>
-  <div class="col-12 mt-3">
-  <h3><strong><%= @realty.name %></strong></h3>
-  </div>
-
 </div>
+
+    <div class="titre-appartement">
+      <h3><strong><%= @realty.name %></strong></h3>
+      <%= link_to edit_realty_path(@realty) do %>
+        <i class="fas fa-edit"></i>
+      <% end %>
+    </div>
 <div class="container-show-realty">
     <h4>Mon logement</h4>
   <div class="realty-details">
@@ -35,33 +31,15 @@
         </div>
         <div class="info-card-content-titre">
           <strong><p>Loyer</p></strong>
-          <div class="mt-2">
-            <%= @realty.rent %> / mois (cc)
+            <div class="loyer-prix">
+            <%= @realty.rent %> / mois
             <%= @realty.payment_date %>
-          </div>
+            </div>
         </div>
       </div>
     </div>
   </div>
-  <% if @realty.tenants.any? %>
-    <h4>Mes locataires</h4>
-    <% @realty.tenants.each do |tenant| %>
-      <div class="tenant-container">
-        <div class="info-container2">
-          <div class="info-name">
-            <i class="fa fa-user fa-2x"></i>
-            <%= tenant.user.full_name %>
-          </div>
-          <div class="info-date">
-          <div class="info-entrée-show-realty">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15M12 9l-3 3m0 0l3 3m-3-3h12.75" />
-            </svg>
-            <div class="enter_date_show_realty">
-              <p><strong>Date d'entrée :</strong> </p>
-              <div class="enter_date">
-                <%# <%= tenant.enter_date %>
-                <%= tenant.enter_date.strftime("%d/%m/%Y") %>
+
   <h4>Mes locataires</h4>
   <% @realty.tenants.each do |tenant| %>
     <div class="info-container">
@@ -73,11 +51,13 @@
         <div class="info-date">
         <div class="info-entrée-show-realty">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15m3 0l3-3m0 0l-3-3m3 3H9" />
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15M12 9l-3 3m0 0l3 3m-3-3h12.75" />
           </svg>
-          <p><strong>Fin de bail :</strong>
-          <div class="out_date">
-          <%= tenant.out_date.strftime("%d/%m/%Y")  %></p>
+          <div class="enter_date_show_realty">
+            <p><strong>Date d'entrée :</strong> </p>
+            <div class="enter_date">
+              <%= tenant.enter_date.strftime("%d/%m/%Y") %>
+            </div>
           </div>
         </div>
         <div class="out_date_show_realty">
@@ -86,7 +66,7 @@
         </svg>
         <p><strong>Fin de bail :</strong>
          <div class="out_date">
-        <%= tenant.out_date %></p>
+        <%= tenant.out_date.strftime("%d/%m/%Y") %></p>
         </div>
       </div>
         </div>
@@ -101,9 +81,8 @@
         </div>
         </div>
       </div>
-    <% end %>
+    </div>
   <% end %>
-
   <div>
     <div class= "btn-path-show-realty">
       <%= link_to 'Réclamations', realty_claims_path(@realty, @claim), class: 'btn btn-info ' %>
