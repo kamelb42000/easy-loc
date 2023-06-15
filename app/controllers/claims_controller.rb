@@ -2,7 +2,6 @@ class ClaimsController < ApplicationController
   before_action :set_realty, only: [:index, :new, :create, :edit, :update]
   before_action :set_claim, only: [:destroy]
 
-
   def index
     @claims = @realty.claims
   end
