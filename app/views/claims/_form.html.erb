@@ -15,8 +15,8 @@
 
   <%= simple_form_for([@realty, @claim]) do |f| %>
     <%= f.input :photo, as: :file %>
-    <%= f.input :title %>
-    <%= f.input :content %>
+    <%= f.input :title, label: "Titre" %>
+    <%= f.input :content, label: "Contenu" %>
     <%= f.button :submit, "Ajouter le document", class: "btn btn-primary" %>
       <% end %>
 <% end %>
