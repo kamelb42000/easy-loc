@@ -41,7 +41,6 @@
 }
 
 svg{
-  padding-left: 5%;
   padding-top: 3%;
   margin-right: 5%;
   box-sizing: border-box;
@@ -67,4 +66,21 @@ a{
 .user-name-realties{
   display: flex;
   align-items: center;
+}
+
+.row>* {
+  flex-shrink: 0;
+  width: 100%;
+  max-width: 100%;
+  display: flex;
+  padding-right: calc(var(--bs-gutter-x) * .5);
+  padding-left: calc(var(--bs-gutter-x) * .5);
+  margin-top: var(--inbs-gutter-y);
+  flex-wrap: nowrap;
+}
+
+.bouton-index-realties{
+  display: flex;
+  flex-direction: column;
+
 }

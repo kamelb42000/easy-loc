@@ -8,18 +8,14 @@
   color: #000;
   align-self: flex-start;
   &.current-user {
-    background-color: #061dee;
+    background-color: #03a9f4;
     color: #fff;
     align-self: end;
   }
 }
 
 /* Styles pour le bouton d'envoi du message */
-.btn-primary {
-  border-radius: 5px 0 0 5px;
-  background-color: #337ab7;
-  border: 2px solid #337ab7;
-}
+
 
 /* Styles pour l'icône de l'avion en papier */
 .fa-paper-plane {
