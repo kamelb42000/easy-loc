@@ -14,8 +14,11 @@
         <div class=" titre_index_claims">
           <strong>Intitulé:</strong><%= claim.title %>
         </div>
+        <div class="titre_index_claims">
+          <strong>Statut :</strong> <%= claim.status_label %>
+        </div>
         <div class=" titre_index_claims">
-          <strong>Date d'enregistrement:</strong> <%= claim.created_at %>
+          <strong>Date d'enregistrement:</strong> <%= claim.created_at.strftime("%d/%m/%Y") %>
           </div>
           <div class=" titre_index_claims">
             <p><strong>Nom de l'appartement :</strong> <%= claim.realty.name %>.</p>
