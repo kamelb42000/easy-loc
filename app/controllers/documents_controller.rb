@@ -1,5 +1,4 @@
 class DocumentsController < ApplicationController
-
   require "open-uri"
   require 'tempfile'
   require 'zip'
@@ -19,15 +18,15 @@ class DocumentsController < ApplicationController
     @document = Document.new(document_params)
     @realty = Realty.find(params[:realty_id])
     @document.realty = @realty
-      if @document.save
-        redirect_to realty_documents_path(@realty.id), notice: "Le document a été créé avec succès."
-      else
-        @realty = Realty.find(params[:realty_id])
-        @documents = @realty.documents
-        @document = Document.new
-        @documents = Document.all
-        render :index, status: :unprocessable_entity
-      end
+    if @document.save
+      redirect_to realty_documents_path(@realty.id), notice: "Le document a été créé avec succès."
+    else
+      @realty = Realty.find(params[:realty_id])
+      @documents = @realty.documents
+      @document = Document.new
+      @documents = Document.all
+      render :index, status: :unprocessable_entity
+    end
   end
 
   def destroy
@@ -40,16 +39,11 @@ class DocumentsController < ApplicationController
     @document = Document.find(params[:id])
   end
 
-
-
-
-
-private
+  private
 
   def document_params
     params.require(:document).permit(:name, :photo)
   end
-
 end
 
 
