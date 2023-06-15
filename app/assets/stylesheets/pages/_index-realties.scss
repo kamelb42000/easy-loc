@@ -22,7 +22,7 @@
   flex-direction: column;
   text-decoration: none;
 }
-.text h5{
+.text h7{
   display: flex;
   flex-direction: column;
   text-decoration: none;
@@ -68,4 +68,11 @@ a{
 .user-name-realties{
   display: flex;
   align-items: center;
+}
+
+h6 {
+  margin-left: 2%;
+  font-weight: 700;
+  line-height: 19px;
+  color: #535353;
 }
