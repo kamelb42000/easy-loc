@@ -9,7 +9,6 @@ class DocumentsController < ApplicationController
     @realty = Realty.find(params[:realty_id])
     @documents = @realty.documents
     @document = Document.new
-    @documents = Document.all
   end
 
   def new
@@ -23,7 +22,11 @@ class DocumentsController < ApplicationController
       if @document.save
         redirect_to realty_documents_path(@realty.id), notice: "Le document a été créé avec succès."
       else
-        render :new, status: :unprocessable_entity
+        @realty = Realty.find(params[:realty_id])
+        @documents = @realty.documents
+        @document = Document.new
+        @documents = Document.all
+        render :index, status: :unprocessable_entity
       end
   end
 
@@ -38,7 +41,7 @@ class DocumentsController < ApplicationController
   end
 
 
-  
+
 
 
 private

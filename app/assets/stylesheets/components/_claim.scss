@@ -63,22 +63,25 @@
 }
 
 .btn-primary-center{
-  margin-left: 36%;
+  display: flex;
+  flex-direction: column;
 }
 
 .btn-update-claim{
-  margin-left: -4%;
+ display: flex;
+ flex-direction: column;
   margin-top: 3%;
+  font-weight: bold;
 }
 
 .card-body h5{
   text-align: center;
 }
 
-.card-title{
-  margin-top: 10%;
+.titre_index_claims {
+  display: flex;
+  flex-direction: column;
 }
-
 .bouton-acceptation {
   display: flex;
   justify-content: space-evenly;
@@ -135,7 +138,9 @@
 }
 
 .carte-titre-show-claim {
+  display: flex;
   text-align: center;
+  flex-direction: column;
 }
 
 .btn-path-show-realty{
