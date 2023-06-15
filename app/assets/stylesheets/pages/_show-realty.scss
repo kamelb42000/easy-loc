@@ -302,13 +302,13 @@ right: 10%;
   border-radius: 14px;
 }
 
-.col-12 i{
-  font-size: 16px;
-}
 
 .col-12 i {
   font-size: 30px;
   color: #03a9f4;
+  &.icon-red {
+    color: $red;
+  }
 }
 
 .icone_supprimer_document{
