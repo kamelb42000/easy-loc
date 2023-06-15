@@ -1,5 +1,5 @@
 /* Styles pour les messages individuels */
-  .message {
+.message {
   margin-bottom: 10px;
   padding: 5px;
   background-color: #fff;
@@ -11,19 +11,6 @@
   margin-bottom: 10px;
   position: relative;
   bottom: 10%;
-}
-
-/* Styles pour le formulaire de saisie du message */
-.form-control {
-  flex: 1;
-  border-radius: 5px;
-  border: 2px solid #ccc;
-}
-
-.btn-icon {
-  padding: 10%;
-  background-color: #ccc;
-  border-radius: 0 5px 5px 0;
 }
 
 /* Styles pour le bouton d'envoi du message */
