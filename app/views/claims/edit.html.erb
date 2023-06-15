@@ -1,7 +1,8 @@
-<h1>Edit Claim</h1>
+<div class="btn-retour">
+  <%= link_to realty_claims_path(@realty), class: "btn-primary-claim" do %>
+    <i class="fa-sharp fa-solid fa-arrow-left"></i>
+  <% end %>
+</div>
 
 <p><%= render 'form', realty: @realty, claim: @claim %></p>
 
-
-<%= link_to 'Show', @claim %>
-<%= link_to 'Back', realty_claims_path(@realty) %>

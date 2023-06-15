@@ -10,17 +10,21 @@
 
   <% @claims.each do |claim| %>
     <div class="card">
-      <div class="card-body">
-        <h5 class="card-title"></h5>
-        <strong>Intitulé:</strong>
-        <%= claim.title %>
-        <h6 class="card-title"><strong>Date d'enregistrement:</strong> <%= claim.created_at %></h6>
-        <p class="card-text"><strong>Nom de l'appartement :</strong> <%= claim.realty.name %>.</p>
-        <div class="btn-primary-center">
-          <a href="<%= realty_claim_path(claim.realty, claim) %>" class="btn btn-primary">Visualiser</a>
-          <% if claim.tenant == current_user %>
-            <div class="btn-update-claim">
-              <a href="<%= edit_realty_claim_path(claim.realty, claim) %>" class="btn btn-primary">Mettre à jour</a>
+      <div class="info-container">
+        <div class=" titre_index_claims">
+          <strong>Intitulé:</strong><%= claim.title %>
+        </div>
+        <div class=" titre_index_claims">
+          <strong>Date d'enregistrement:</strong> <%= claim.created_at %>
+          </div>
+          <div class=" titre_index_claims">
+            <p><strong>Nom de l'appartement :</strong> <%= claim.realty.name %>.</p>
+          </div>
+          <div class="btn-primary-center">
+            <a href="<%= realty_claim_path(claim.realty, claim) %>" class="btn btn-primary">Visualiser</a>
+            <% if claim.tenant == current_user %>
+              <div class="btn-update-claim">
+                <a href="<%= edit_realty_claim_path(claim.realty, claim) %>" class="btn btn-primary">Mettre à jour</a>
             </div>
           <% end %>
         </div>

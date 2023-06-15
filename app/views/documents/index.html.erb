@@ -4,46 +4,48 @@
   <% end %>
 </div>
 <div class="container_claim">
-      <strong><h4>Ma liste des documents</h4></strong>
-    <div class="document" >
-    <div class="card">
-    <div class="card-body">
-      <ul>
-        <% @documents.each do |document| %>
-            <li >
-              <%= document.name %>
-              <% if document.photo.attached? %>
-              <div class="icone-document">
-                <%= link_to raw('<i class="fa-regular fa-eye"></i>'), url_for(document.photo), target: "_blank" %>
-              </div>
-              <% else %>
-                <span class="text-muted">Aucun fichier disponible</span>
+  <strong><h4>Ma liste des documents</h4></strong>
+  <div class="d-flex flex-column gap-4 m-3">
+    <% @documents.each do |document| %>
+      <div class="row info-container">
+        <div class="col-12 text-center">
+          <strong><%= document.name %></strong>
+        </div>
+        <div class="col-12 d-flex justify-content-around">
+          <% if document.photo.attached? %>
+
+            <%= link_to url_for(document.photo), target: "_blank" do %>
+              <i class="fa-regular fa-eye"></i>
+            <% end %>
+            <%= link_to rails_blob_url(document.photo, disposition: 'attachment') do %>
+              <i class="fas fa-download"></i>
+            <% end %>
+              <div class="icone_supprimer_document">
+              <%= link_to document_path(document), data: { turbo_method: :delete, turbo_confirm: "Etes-vous sûr de vouloir supprimer ce document?" } do %>
+                <i class="fa-regular fa-circle-xmark"></i>
               <% end %>
-              <% if document.photo.attached? %>
-              <div class="icone-document">
-              <%= link_to raw('<i class="fas fa-download"></i>'), rails_blob_url(document.photo, disposition: 'attachment') %>
               </div>
-              <% end %>
-              <div class="icone-document">
-              <%= link_to raw('<i class="fa-regular fa-circle-xmark"></i>'), document_path(document), data: { turbo_method: :delete, turbo_confirm: "Etes-vous sûr de vouloir supprimer ce document?" } %>
-              </div>
-            </li>
+
+          <% else %>
+            <span class="text-muted">Aucun fichier disponible</span>
           <% end %>
-      </ul>
-    </div>
-    </div>
+        </div>
+      </div>
+    <% end %>
   </div>
 
-      <div class="titre-document-ajout">
-        <h4>Ajouter un document</h4>
-      </div>
-  <div class="card">
-    <div class="card-body">
+  <div class="titre-document-ajout">
+    <h4>Ajouter un document</h4>
+  </div>
+
+    <div class="info-container">
       <%= simple_form_for([@realty, @document]) do |f| %>
-        <%= f.input :photo, label: "Document", as: :file %>
-        <%= f.input :name, label: "Titre du document" %>
-        <%= f.button :submit, "Ajouter le document", class: "btn btn-primary" %>
+        <div class="d-flex flex-column ">
+          <%= f.input :name, label: "Titre du document" %>
+          <%= f.input :photo, label: "Document", as: :file %>
+          <%= f.button :submit, "Ajouter le document", class: "btn btn-primary" %>
+        </div>
       <% end %>
     </div>
-  </div>
+
 </div>

@@ -5,11 +5,15 @@
 }
 
 .document li{
-  display:flex;
-  align-items: center;
-  gap: 5%;
-  font-size: 21px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 30px;
+  margin-bottom: 2%;
+  margin-top: 2%;
+  flex-direction: column;
 }
+
+
 
 .document li i{
   margin-right: 0%;
@@ -37,4 +41,15 @@
 .titre-document-ajout{
   margin-top: 16%;
   margin-bottom: 3%;
+}
+
+
+.card-body li div {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1%;
+  margin-top: 1%;
+}
+.card-body ul li strong{
+  font-size: 20px;
 }

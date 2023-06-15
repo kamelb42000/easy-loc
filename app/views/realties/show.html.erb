@@ -42,7 +42,7 @@
 
   <h4>Mes locataires</h4>
   <% @realty.tenants.each do |tenant| %>
-    <div class="tenant-container">
+    <div class="info-container">
       <div class="info-container2">
         <div class="info-name">
         <i class="fa fa-user fa-2x"></i>
@@ -76,7 +76,7 @@
         </svg>
         <div class="time-date-show-realty">
        <% if tenant.enter_date && tenant.out_date %>
-          <p><strong>Durée de location :</strong> <%= (tenant.out_date - tenant.enter_date).to_i %> jours</p>
+          <p><strong>Durée de location :</strong> <%= (tenant.out_date - tenant.enter_date).to_i %> jours </p>
         <% end %>
         </div>
         </div>
