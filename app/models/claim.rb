@@ -1,5 +1,5 @@
 class Claim < ApplicationRecord
-  STATUS = ["pending", "in progress", "refused", "done"]
+  STATUS = ["En attente", "En cours", "Refusée", "Terminée"]
 
   belongs_to :realty
   belongs_to :tenant, class_name: "User", foreign_key: "tenant_id"
@@ -8,4 +8,19 @@ class Claim < ApplicationRecord
 
   validates :title, :content, presence: true
   validates :status, inclusion: { in: STATUS }
+
+  def status_label
+    case status
+    when "in progress"
+      "En attente"
+    when "En cours"
+      "En cours"
+    when "Refusée"
+      "Refusée"
+    when "Terminée"
+      "Terminée"
+    else
+      ""
+    end
+  end
 end

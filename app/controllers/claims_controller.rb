@@ -45,19 +45,19 @@ class ClaimsController < ApplicationController
 
   def accept
     @claim = Claim.find(params[:id])
-    @claim.update(status: "in progress")
+    @claim.update(status: "En cours")
     redirect_to claim_path(@claim), notice: "La demande a été acceptée avec succès"
   end
 
   def refuse
     @claim = Claim.find(params[:id])
-    @claim.update(status: "refused")
+    @claim.update(status: "Refusée")
     redirect_to claim_path(@claim), notice: "pas content"
   end
 
   def done
     @claim = Claim.find(params[:id])
-    @claim.update(status: "done")
+    @claim.update(status: "Terminée")
     redirect_to claim_path(@claim), notice: "La réclamation a été marquée comme terminée avec succès."
   end
 
