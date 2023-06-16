@@ -46,11 +46,11 @@
     <div class="btn-circle">
     <%= link_to raw('<i class="fa-solid fa-xmark fa-lg"></i>'), refuse_claim_path(@claim), data: { turbo_method: :patch }, class: "btn-delete"  %>
     </div>
-      <%= link_to raw('<i class="fa-solid fa-check fa-lg"></i>'), accept_claim_path(@claim), data: { turbo_method: :patch }, class: "btn-validate"  %>
+    <%= link_to raw('<i class="fa-solid fa-check fa-lg"></i>'), accept_claim_path(@claim), data: { turbo_method: :patch }, class: "btn-validate"  %>
   <% end %>
 
   <div class="btn-path-show-realty">
-  <% if @claim.status == 'in progress' %>
+  <% if @claim.status == 'En cours' %>
     <%= link_to 'Terminé', done_claim_path(@claim), data: { turbo_method: :patch }, class: "btn btn-info " %>
   <% end %>
   </div>
