@@ -16,9 +16,6 @@ puts "Creating users ..."
 
 realty1 = Realty.create!(name: "Loft meublé en bord de mer", address: "20 rue de la fraternité, Marseille", user: user1, category: "Loft", rent: "850€")
 realty2 = Realty.create!(name: "Appartement T3 non meublé", address: "22 rue René Leynaud, Lyon 1", user: user1, category: "Apartment", rent: "910€")
-realty3 = Realty.create!(name: "Pavillon", address: "23 rue Antoine Barbier, Lyon 6", user: user1, category: "Maison", rent: "1220€")
-realty4 = Realty.create!(name: "Studio", address: "2 rue Vauban, Lyon", user: user1, category: "Studio", rent: "765€")
-realty5 = Realty.create!(name: "Appartement T2", address: "4 rue Waldeck-Rousseau, Lyon 6", user: user1, category: "Appartement", rent: "640€")
 
 puts "Creating realties ..."
 
