@@ -1,4 +1,4 @@
 class Candidature < ApplicationRecord
+  belongs_to :user
   belongs_to :realty
-  has_many :user
 end
