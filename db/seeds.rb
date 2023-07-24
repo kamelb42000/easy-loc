@@ -12,6 +12,7 @@ user2 = User.create!(email: 'Kamel.b@gmail.com', password: 'password', first_nam
 user3 = User.create!(email: 'Mehdi.m@gmail.com', password: 'password', first_name: 'Mehdi', last_name: 'Medjou')
 user4 = User.create!(email: 'Jean.d@gmail.com', password: 'password', first_name: 'Jean', last_name: 'Dupont')
 
+
 puts "Creating users ..."
 
 realty1 = Realty.create!(name: "Loft meublé en bord de mer", address: "20 rue de la fraternité, Marseille", user: user1, category: "Loft", rent: "850€")
