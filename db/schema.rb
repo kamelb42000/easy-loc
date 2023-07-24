@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema[7.0].define(version: 2023_07_24_133107) do
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -42,6 +44,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_24_133107) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+
   create_table "candidatures", force: :cascade do |t|
     t.string "title"
     t.bigint "realty_id"
@@ -50,6 +53,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_24_133107) do
     t.datetime "updated_at", null: false
     t.json "documents"
   end
+
 
   create_table "claims", force: :cascade do |t|
     t.string "title"
