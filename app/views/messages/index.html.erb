@@ -6,11 +6,11 @@
 </div>
 
 <div
-      data-controller="realty-subscription"
-      data-realty-subscription-realty-id-value="<%= @realty.id %>"
-      data-realty-subscription-user-id-value="<%= current_user.id %>"
-      data-realty-subscription-last-message-id-value="<%= @messages.last.id %>"
-      >
+  data-controller="realty-subscription"
+  data-realty-subscription-realty-id-value="<%= @realty.id %>"
+  data-realty-subscription-user-id-value="<%= current_user.id %>"
+  data-realty-subscription-last-message-id-value="<%= @messages.last.id %>"
+  >
 
   <div class="messages" data-realty-subscription-target="messages">
     <% @messages.each do |message| %>
@@ -21,12 +21,11 @@
   <%= form_with model: [@realty, @message], data: { action: "turbo:submit-end->realty-subscription#resetForm" }, class: "d-flex" do |f| %>
     <div class="message-nav-content">
       <%= f.text_field :content, placeholder: "Votre message...", class: "input"  %>
-      <button type="submit" class="btn-icon">
-        <i class="fas fa-paper-plane"></i>
-      </button>
+        <button type="submit" class="btn-icon">
+          <i class="fas fa-paper-plane"></i>
+        </button>
     </div>
   <% end %>
-
 
   <%# Scroll vers le dernier message %>
   <script>
