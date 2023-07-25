@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     resources :documents, only: [:index, :create]
     resources :messages, only: [:index, :create]
     resources :tenants, only: [:create, :new]
-    resources :candidature, only: [:create, :new]
+    resources :candidatures, only: [:create, :new]
   end
 
   resources :claims do
