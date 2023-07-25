@@ -8,13 +8,18 @@ class CandidaturesController < ApplicationController
   end
 
   def new
+    @realty = Realty.find(params[:realty_id])
     @candidature = Candidature.new
+
   end
 
   def create
-    @candidature = Candidature.new(candidature_params)
+    @realty = Realty.find(params[:realty_id])
+    @candidature = current_user.candidatures.build(candidature_params)
+    @candidature.realty = @realty
+
     if @candidature.save
-      redirect_to @candidature, notice: 'Candidature créée avec succès.'
+      redirect_to @realty, notice: "Votre candidature a été soumise avec succès."
     else
       render :new
     end
