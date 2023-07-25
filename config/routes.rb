@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
-  get 'candidats/index'
-  get 'candidats/new'
-  get 'candidats/create'
+
   devise_for :users
   root to: "pages#home"
 
@@ -10,7 +8,11 @@ Rails.application.routes.draw do
     resources :documents, only: [:index, :create]
     resources :messages, only: [:index, :create]
     resources :tenants, only: [:create, :new]
+<<<<<<< HEAD
     resources :candidatures, only: [:create, :new]
+=======
+    resources :candidatures, only: [:index,:create, :new]
+>>>>>>> c33e963e01d454c891ff00f96009cd06699cee91
   end
 
   resources :claims do
