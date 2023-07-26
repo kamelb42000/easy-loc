@@ -1,5 +1,6 @@
 class CandidaturesController < ApplicationController
   def index
+    @realty = Realty.find(params[:realty_id])
     @candidatures = Candidature.includes(:user, :realty).all
   end
 
