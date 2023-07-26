@@ -1,6 +1,6 @@
 class CandidaturesController < ApplicationController
   def index
-    @candidatures = Candidature.all
+    @candidatures = Candidature.includes(:user, :realty).all
   end
 
   def show

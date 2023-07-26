@@ -1,0 +1,42 @@
+.container-candidature{
+  margin-top: 10%;
+  padding: 0 3%;
+}
+
+.card-candidature {
+  border: 1px solid #e0e0e0;
+  border-radius: 16px; // Ajoutez le rayon souhaité pour les coins arrondis
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  transition: box-shadow 0.3s;
+  width: 100%; // Ajoutez cette ligne pour que la carte prenne toute la largeur du conteneur
+
+  &:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  }
+
+  .card-body-candidature {
+    padding: 1.25rem;
+    text-align: center; // Centrer le contenu à l'intérieur de la carte
+  }
+
+  // Le reste du style reste inchangé
+}
+
+// Pour centrer horizontalement la carte
+
+
+
+
+  .card-title-candidature {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+
+  .card-text-candidature {
+    font-size: 1rem;
+    color: #444;
+    margin-bottom: 0.25rem;
+  }
+
