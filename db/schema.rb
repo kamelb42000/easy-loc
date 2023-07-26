@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_25_145220) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_26_132256) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -70,6 +70,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_25_145220) do
     t.bigint "realty_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "candidature_id"
+    t.index ["candidature_id"], name: "index_documents_on_candidature_id"
     t.index ["realty_id"], name: "index_documents_on_realty_id"
   end
 
@@ -127,6 +129,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_25_145220) do
   add_foreign_key "candidatures", "realties"
   add_foreign_key "candidatures", "users"
   add_foreign_key "claims", "realties"
+  add_foreign_key "documents", "candidatures"
   add_foreign_key "documents", "realties"
   add_foreign_key "messages", "realties"
   add_foreign_key "messages", "users"
