@@ -1,1 +1,19 @@
-<h2>OK</h2>
+<div class="container-candidature">
+
+  <h1>Liste des candidatures</h1>
+
+  <div class="row">
+    <% @candidatures.each do |candidature| %>
+      <div class="col-md-4 mb-4">
+        <div class="card-candidature">
+          <div class="card-body-candidature">
+            <h5 class="card-title-candidature"><%= candidature.user.full_name %></h5>
+            <p class="card-text-candidature">Realty: <%= candidature.realty.name %></p>
+            <p class="card-text-candidature">Status: <%= candidature.status.capitalize %></p>
+
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

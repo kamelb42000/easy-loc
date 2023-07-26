@@ -29,6 +29,7 @@ claim.photo.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'Err
 
 Tenant.create!(enter_date: Date.today.beginning_of_month, out_date: Date.today + 1.year, realty: realty1, user: user2)
 puts "Creating tenants ..."
+Candidature.create!(content: "Bonjour je suis Mehdi je postule pour votre appartement", realty: realty1, user: user3)
 
 document = Document.create!(name: "Quittance de loyer", realty: realty1)
 document.photo.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'quittance-de-loyer.pdf')), filename: "quittance-de-loyer.pdf", content_type: "image/pdf")
