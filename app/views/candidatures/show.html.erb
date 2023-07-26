@@ -1,0 +1,30 @@
+<div class="container_claim">
+  <strong><h4>Ma liste des documents</h4></strong>
+  <div class="d-flex flex-column gap-4 m-3">
+    <% @candidatures.each do |candidature| %>
+      <div class="row info-container">
+        <div class="col-12 text-center">
+          <strong><%= candidature.content %></strong>
+        </div>
+        <div class="col-12 d-flex justify-content-around">
+          <% if candidature.photo.attached? %>
+
+            <%= link_to url_for(candidature.photo), target: "_blank" do %>
+              <i class="fa-regular fa-eye"></i>
+            <% end %>
+            <%= link_to rails_blob_url(candidature.photo, disposition: 'attachment') do %>
+              <i class="fas fa-download"></i>
+            <% end %>
+              <div class="icone_supprimer_document">
+              <%= link_to candidature_path(candidature), data: { turbo_method: :delete, turbo_confirm: "Etes-vous sûr de vouloir supprimer ce document?" } do %>
+                <i class="fa-regular fa-circle-xmark icon-red"></i>
+              <% end %>
+              </div>
+
+          <% else %>
+            <span class="text-muted">Aucun fichier disponible</span>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>

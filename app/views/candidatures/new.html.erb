@@ -1,0 +1,22 @@
+<div class="container_candidature">
+  <div class="card">
+    <div class="info-container">
+      <%= simple_form_for([@realty, @candidature], html: { class: 'form', multipart: true }) do |form| %>
+        <% if @candidature.errors.any? %>
+          <div id="error_explanation" class="alert alert-danger">
+            <h2><%= pluralize(@candidature.errors.count, "error") %> on ne peut pas sauvegarder</h2>
+            <ul>
+              <% @candidature.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+        <%= form.input :photo, as: :file %>
+        <%= form.input :content, label: "Contenu" %>
+        <%= form.button :submit, "Ajouter le document", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+</div>
