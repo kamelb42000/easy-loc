@@ -6,21 +6,23 @@
         <div class="col-12 text-center">
           <strong><%= candidature.content %></strong>
         </div>
-        <div class="col-12 d-flex justify-content-around">
-          <% if candidature.photo.attached? %>
-
-            <%= link_to url_for(candidature.photo), target: "_blank" do %>
-              <i class="fa-regular fa-eye"></i>
-            <% end %>
-            <%= link_to rails_blob_url(candidature.photo, disposition: 'attachment') do %>
-              <i class="fas fa-download"></i>
-            <% end %>
-              <div class="icone_supprimer_document">
-              <%= link_to candidature_path(candidature), data: { turbo_method: :delete, turbo_confirm: "Etes-vous sûr de vouloir supprimer ce document?" } do %>
-                <i class="fa-regular fa-circle-xmark icon-red"></i>
-              <% end %>
+        <div class="col-12 d-flex flex-column gap-2"> 
+          <% if candidature.documents.attached? %>
+            <% candidature.documents.each do |document| %>
+              <div class="d-flex justify-content-around">
+                <%= link_to url_for(document), target: "_blank" do %>
+                  <i class="fa-regular fa-eye"></i>
+                <% end %>
+                <%= link_to rails_blob_url(document, disposition: 'attachment') do %>
+                  <i class="fas fa-download"></i>
+                <% end %>
+                <div class="icone_supprimer_document">
+                  <%= link_to realty_candidature_path(candidature), data: { turbo_method: :delete, turbo_confirm: "Etes-vous sûr de vouloir supprimer ce document?" } do %>
+                    <i class="fa-regular fa-circle-xmark icon-red"></i>
+                  <% end %>
+                </div>
               </div>
-
+            <% end %>
           <% else %>
             <span class="text-muted">Aucun fichier disponible</span>
           <% end %>
@@ -28,3 +30,4 @@
       </div>
     <% end %>
   </div>
+</div>

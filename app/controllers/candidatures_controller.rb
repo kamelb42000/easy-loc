@@ -6,6 +6,8 @@ class CandidaturesController < ApplicationController
 
   def show
     @candidature = Candidature.find(params[:id])
+    @realty = Realty.find(params[:realty_id])
+    @candidatures = @realty.candidatures
   end
 
   def new
@@ -18,6 +20,11 @@ class CandidaturesController < ApplicationController
     @realty = Realty.find(params[:realty_id])
     @candidature = current_user.candidatures.build(candidature_params)
     @candidature.realty = @realty
+    if params[:candidature][:documents].present?
+      params[:candidature][:documents].each do |photo|
+        @candidature.documents.attach(photo)
+      end
+    end
 
     if @candidature.save
       redirect_to @realty, notice: "Votre candidature a été soumise avec succès."
@@ -48,6 +55,6 @@ class CandidaturesController < ApplicationController
   private
 
   def candidature_params
-    params.require(:candidature).permit(:title, :status, :realty_id, documents: [])
+    params.require(:candidature).permit(:content, :status, :realty_id, documents: [])
   end
 end

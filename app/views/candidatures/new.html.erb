@@ -13,7 +13,7 @@
           </div>
         <% end %>
 
-        <%= form.input :photo, as: :file %>
+         <%= form.input :documents, as: :file, input_html: { multiple: true } %>
         <%= form.input :content, label: "Contenu" %>
         <%= form.button :submit, "Ajouter le document", class: "btn btn-primary" %>
       <% end %>
