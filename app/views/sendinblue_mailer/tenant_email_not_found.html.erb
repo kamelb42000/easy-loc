@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Alerte : Adresse e-mail du locataire non trouvée</title>
+</head>
+<body>
+  <h1>Alerte : Adresse e-mail du locataire non trouvée</h1>
+  <p>Bonjour,</p>
+
+  <p>Nous avons remarqué qu'une adresse e-mail du locataire pour le bien immobilier ci-dessous n'a pas été trouvée :</p>
+  <p>Nom du bien immobilier : <%= @realty.name %></p>
+  <p>Adresse e-mail du locataire introuvable : <%= @tenant_email %></p>
+
+  <p>Veuillez prendre les mesures nécessaires pour corriger cette situation.</p>
+
+  <p>Cordialement,</p>
+  <p>Votre application Rails</p>
+</body>
+</html>

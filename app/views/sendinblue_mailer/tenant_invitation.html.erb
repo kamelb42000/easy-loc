@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Invitation à s'inscrire sur l'application</title>
+</head>
+<body>
+  <h1>Invitation à s'inscrire sur l'application</h1>
+  <p>Bonjour,</p>
+
+  <p>Vous êtes invité à vous inscrire sur notre application pour le bien immobilier ci-dessous :</p>
+  <p>Nom du bien immobilier : <%= @realty.name %></p>
+  <%= @user.email %>
+  <%= @user.password %>
+
+  <p>Veuillez cliquer sur le lien ci-dessous pour compléter votre inscription :</p>
+  <p><%#= link_to "Inscription", new_user_registration_url(confirmation_token: @token) %></p>
+
+  <p>Merci de rejoindre notre application.</p>
+
+  <p>Cordialement,</p>
+  <p>Votre application Rails</p>
+</body>
+</html>
