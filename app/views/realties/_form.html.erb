@@ -65,11 +65,11 @@
    <div class="form-group">
 
     <%= label_tag  :Mail_du_locataire %>
-
     <%= text_field_tag :tenant_email%>
+
   </div>
-<%= form.input :tenant_enter_date, as: :date, label: "Date d'entrée", input_html: { value: form.object.tenant_enter_date&.strftime('%d/%m/%Y') }, html5: true %>
-<%= form.input :tenant_out_date, as: :date, label: "Date de sortie", input_html: { value: form.object.tenant_out_date&.strftime('%d/%m/%Y') }, html5: true  %>
+<%= form.input :tenant_enter_date, as: :date, label: "Date d'entrée", input_html: { value: form.object.tenant_enter_date.present? ? Date.parse(form.object.tenant_enter_date).strftime('%d/%m/%Y') : nil }, html5: true %>
+<%= form.input :tenant_out_date, as: :date, label: "Date de sortie", input_html: { value: form.object.tenant_out_date.present? ? Date.parse(form.object.tenant_out_date).strftime('%d/%m/%Y') : nil }, html5: true  %>
 
 
 

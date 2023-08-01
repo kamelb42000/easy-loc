@@ -23,17 +23,20 @@ class RealtiesController < ApplicationController
   def update
     @realty = Realty.find(params[:id])
     unless current_user == @realty.user
-      redirect_to realty_path(@realty), flash: { alert: "Vous n'êtes pas autorisé à modifier ce bien immobilier." }
+    redirect_to realty_path(@realty), flash: { alert: "Vous n'êtes pas autorisé à modifier ce bien immobilier." }
       return
     end
-    if @realty.update(realty_params)
-      tenant_email = params["tenant_email"]
-      tenant_user = User.find_by(email: tenant_email)
-      # enter_date = Date.parse("#{realty_params['tenant_enter_date(1i)']}-#{realty_params['tenant_enter_date(2i)']}-#{realty_params['tenant_enter_date(3i)']}")
-      # out_date = Date.parse("#{realty_params['tenant_out_date(1i)']}-#{realty_params['tenant_out_date(2i)']}-#{realty_params['tenant_out_date(3i)']}")
-      tenant = Tenant.find_or_create_by(user: tenant_user, realty: @realty)
-      tenant.update(enter_date: params[:realty][:tenant_enter_date], out_date: params[:realty][:tenant_out_date])
-      redirect_to realty_path(@realty), flash: {alert: "Le bien a été modifié avec succès"}
+
+    if @realty.save
+      tenant_user = User.find_by(email: params["tenant_email"])
+      unless tenant_user.present? && tenant.persisted?
+        tenant_user = User.create(email: params["tenant_email"], password: "password")
+        # token = Devise.friendly_token
+        SendinblueMailer.tenant_invitation(@realty, tenant_user).deliver_now
+      end
+
+    Tenant.create(user: tenant_user, realty: @realty, enter_date: params[:realty][:tenant_enter_date], out_date: params[:realty][:tenant_out_date])
+      redirect_to realty_path(@realty), flash: { success: "Le bien a été modifié avec succès" }
     else
       render :edit, status: :unprocessable_entity
     end
@@ -42,14 +45,16 @@ class RealtiesController < ApplicationController
   def create
     @realty = Realty.new(realty_params)
     @realty.user = current_user
-    if @realty.save!
-      # tenant_user = User.find(realty_params[:tenant_user_id])
-      tenant_email = params["tenant_email"]
-      tenant_user = User.find_by(email: tenant_email)
-      # enter_date = Date.parse("#{realty_params['tenant_enter_date(1i)']}-#{realty_params['tenant_enter_date(2i)']}-#{realty_params['tenant_enter_date(3i)']}")
-      # out_date = Date.parse("#{realty_params['tenant_out_date(1i)']}-#{realty_params['tenant_out_date(2i)']}-#{realty_params['tenant_out_date(3i)']}")
-      tenant = Tenant.find_or_create_by(user: tenant_user, realty: @realty)
-      tenant.update(enter_date: params[:realty][:tenant_enter_date], out_date: params[:realty][:tenant_out_date])
+    if @realty.save
+      tenant_user = User.find_by(email: params["tenant_email"])
+      unless tenant_user.present? && tenant.persisted?
+        tenant_user = User.create(email: params["tenant_email"], password: "password")
+        # token = Devise.friendly_token
+        SendinblueMailer.tenant_invitation(@realty, tenant_user).deliver_now
+      end
+
+    Tenant.create(user: tenant_user, realty: @realty, enter_date: params[:realty][:tenant_enter_date], out_date: params[:realty][:tenant_out_date])
+
       redirect_to realty_path(@realty), flash: { success: "Le bien a été créé avec succès" }
     else
       render :new, status: :unprocessable_entity
